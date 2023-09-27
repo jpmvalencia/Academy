@@ -46,6 +46,12 @@ public class Login extends javax.swing.JFrame {
         signUp.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
         signUp.setForeground(new java.awt.Color(105, 151, 207));
         signUp.setText("Crear una cuenta");
+        signUp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        signUp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                signUpMouseClicked(evt);
+            }
+        });
         jPanel1.add(signUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 464, -1, -1));
 
         userLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
@@ -87,6 +93,11 @@ public class Login extends javax.swing.JFrame {
         nextButton.setForeground(new java.awt.Color(255, 255, 251));
         nextButton.setText("⇢");
         nextButton.setBorder(null);
+        nextButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                nextButtonMouseClicked(evt);
+            }
+        });
         nextButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nextButtonActionPerformed(evt);
@@ -122,6 +133,22 @@ public class Login extends javax.swing.JFrame {
     private void pswdInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pswdInputActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pswdInputActionPerformed
+
+    private void nextButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nextButtonMouseClicked
+        if("a".equals(userInput.getText())) {
+            if("a".equals(String.valueOf(pswdInput.getPassword()))){
+                // Ingresar a Content
+                System.out.print("Usuario: " + userInput.getText() + "\n Contraseña: " + String.valueOf(pswdInput.getPassword()));
+            }
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "No se logeó");
+        }
+    }//GEN-LAST:event_nextButtonMouseClicked
+
+    private void signUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signUpMouseClicked
+        new SignUp().setVisible(true);  // Instancia la clase SingUp y llama a setVisible(true) para hacerse visible
+        this.dispose();                   // Cierra la ventana actual en la que se hace clic
+    }//GEN-LAST:event_signUpMouseClicked
 
     /**
      * @param args the command line arguments

@@ -40,6 +40,8 @@ public class SignUp extends javax.swing.JFrame {
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
+        setResizable(false);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -111,6 +113,12 @@ public class SignUp extends javax.swing.JFrame {
         logIn.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
         logIn.setForeground(new java.awt.Color(105, 151, 207));
         logIn.setText("Iniciar Sesión");
+        logIn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        logIn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logInMouseClicked(evt);
+            }
+        });
         jPanel1.add(logIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 460, -1, -1));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgSignUp.png"))); // NOI18N
@@ -137,6 +145,12 @@ public class SignUp extends javax.swing.JFrame {
     private void rePsswdInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rePsswdInputActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rePsswdInputActionPerformed
+
+    private void logInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logInMouseClicked
+        // TODO add your handling code here:
+        new Login().setVisible(true);   // Instancia la clase SingUp y llama a setVisible(true) para hacerse visible
+        this.dispose();                   // Cierra la ventana actual en la que se hace clic
+    }//GEN-LAST:event_logInMouseClicked
 
     /**
      * @param args the command line arguments
