@@ -28,12 +28,15 @@ public class Login extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         signUp = new javax.swing.JLabel();
+        nextButton = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         userLabel = new javax.swing.JLabel();
         pswdLabel = new javax.swing.JLabel();
         userInput = new javax.swing.JTextField();
         pswdInput = new javax.swing.JPasswordField();
-        nextButton = new javax.swing.JButton();
-        background = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Academy");
@@ -52,17 +55,35 @@ public class Login extends javax.swing.JFrame {
                 signUpMouseClicked(evt);
             }
         });
-        jPanel1.add(signUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 464, -1, -1));
+        jPanel1.add(signUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(697, 450, -1, -1));
+
+        nextButton.setBackground(new java.awt.Color(105, 151, 207));
+        nextButton.setForeground(new java.awt.Color(255, 255, 251));
+        nextButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        nextButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                nextButtonMouseClicked(evt);
+            }
+        });
+        nextButton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 251));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Iniciar");
+        nextButton.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 10, 120, 30));
+
+        jPanel1.add(nextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(689, 380, 130, 47));
 
         userLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
         userLabel.setForeground(new java.awt.Color(24, 49, 85));
         userLabel.setText("Usuario");
-        jPanel1.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(446, 168, -1, -1));
+        jPanel1.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(719, 150, -1, -1));
 
         pswdLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
         pswdLabel.setForeground(new java.awt.Color(24, 49, 85));
         pswdLabel.setText("Contraseña");
-        jPanel1.add(pswdLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(428, 280, -1, -1));
+        jPanel1.add(pswdLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(702, 260, -1, -1));
 
         userInput.setBackground(new java.awt.Color(105, 151, 207));
         userInput.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
@@ -74,7 +95,7 @@ public class Login extends javax.swing.JFrame {
                 userInputActionPerformed(evt);
             }
         });
-        jPanel1.add(userInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 204, 266, 47));
+        jPanel1.add(userInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 190, 266, 47));
 
         pswdInput.setBackground(new java.awt.Color(105, 151, 207));
         pswdInput.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 12)); // NOI18N
@@ -86,37 +107,28 @@ public class Login extends javax.swing.JFrame {
                 pswdInputActionPerformed(evt);
             }
         });
-        jPanel1.add(pswdInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 315, 266, 47));
+        jPanel1.add(pswdInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 300, 266, 47));
 
-        nextButton.setBackground(new java.awt.Color(105, 151, 207));
-        nextButton.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
-        nextButton.setForeground(new java.awt.Color(255, 255, 251));
-        nextButton.setText("⇢");
-        nextButton.setBorder(null);
-        nextButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                nextButtonMouseClicked(evt);
-            }
-        });
-        nextButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nextButtonActionPerformed(evt);
-            }
-        });
-        jPanel1.add(nextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(454, 386, 47, 47));
+        jLabel1.setFont(new java.awt.Font("Rounded Mplus 1c ExtraBold", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(119, 149, 203));
+        jLabel1.setText("Iniciar Sesión");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 50, -1, -1));
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgLogin.png"))); // NOI18N
-        jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo1.png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 340, 70));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgLogin.png"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 540));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -126,13 +138,14 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_userInputActionPerformed
 
-    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nextButtonActionPerformed
-
     private void pswdInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pswdInputActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pswdInputActionPerformed
+
+    private void signUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signUpMouseClicked
+        new SignUp().setVisible(true);  // Instancia la clase SingUp y llama a setVisible(true) para hacerse visible
+        this.dispose();                   // Cierra la ventana actual en la que se hace clic
+    }//GEN-LAST:event_signUpMouseClicked
 
     private void nextButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nextButtonMouseClicked
         if("a".equals(userInput.getText())) {
@@ -144,11 +157,6 @@ public class Login extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "No se logeó");
         }
     }//GEN-LAST:event_nextButtonMouseClicked
-
-    private void signUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signUpMouseClicked
-        new SignUp().setVisible(true);  // Instancia la clase SingUp y llama a setVisible(true) para hacerse visible
-        this.dispose();                   // Cierra la ventana actual en la que se hace clic
-    }//GEN-LAST:event_signUpMouseClicked
 
     /**
      * @param args the command line arguments
@@ -186,9 +194,12 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel background;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton nextButton;
+    private javax.swing.JPanel nextButton;
     private javax.swing.JPasswordField pswdInput;
     private javax.swing.JLabel pswdLabel;
     private javax.swing.JLabel signUp;
