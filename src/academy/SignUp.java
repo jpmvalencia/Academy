@@ -27,6 +27,7 @@ public class SignUp extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         userInput = new javax.swing.JTextField();
         userLabel = new javax.swing.JLabel();
         emailInput = new javax.swing.JTextField();
@@ -34,45 +35,53 @@ public class SignUp extends javax.swing.JFrame {
         psswdLabel = new javax.swing.JLabel();
         psswdInput = new javax.swing.JPasswordField();
         rePsswdInput = new javax.swing.JPasswordField();
+        nextButton = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
         rePsswdLabel = new javax.swing.JLabel();
-        nextButton = new javax.swing.JButton();
         logIn = new javax.swing.JLabel();
-        background = new javax.swing.JLabel();
+        logoLabel = new javax.swing.JLabel();
+        circleBg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
         setResizable(false);
 
+        jPanel1.setBackground(new java.awt.Color(239, 246, 249));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Rounded Mplus 1c ExtraBold", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(119, 149, 203));
+        jLabel1.setText("Registro");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, -1));
 
         userInput.setBackground(new java.awt.Color(105, 151, 207));
         userInput.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
         userInput.setForeground(new java.awt.Color(255, 255, 251));
         userInput.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         userInput.setBorder(null);
-        jPanel1.add(userInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 220, 47));
+        jPanel1.add(userInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 220, 47));
 
         userLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
         userLabel.setForeground(new java.awt.Color(24, 49, 85));
         userLabel.setText("Usuario");
-        jPanel1.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, -1, -1));
+        jPanel1.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
 
         emailInput.setBackground(new java.awt.Color(105, 151, 207));
         emailInput.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
         emailInput.setForeground(new java.awt.Color(255, 255, 251));
         emailInput.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         emailInput.setBorder(null);
-        jPanel1.add(emailInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 220, 47));
+        jPanel1.add(emailInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 220, 47));
 
         emailLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
         emailLabel.setForeground(new java.awt.Color(24, 49, 85));
         emailLabel.setText("Correo Electrónico");
-        jPanel1.add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, -1, -1));
+        jPanel1.add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
 
         psswdLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
         psswdLabel.setForeground(new java.awt.Color(24, 49, 85));
         psswdLabel.setText("Contraseña");
-        jPanel1.add(psswdLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 160, -1, -1));
+        jPanel1.add(psswdLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, -1, -1));
 
         psswdInput.setBackground(new java.awt.Color(105, 151, 207));
         psswdInput.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
@@ -84,7 +93,7 @@ public class SignUp extends javax.swing.JFrame {
                 psswdInputActionPerformed(evt);
             }
         });
-        jPanel1.add(psswdInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 220, 47));
+        jPanel1.add(psswdInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 220, 47));
 
         rePsswdInput.setBackground(new java.awt.Color(105, 151, 207));
         rePsswdInput.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
@@ -96,19 +105,30 @@ public class SignUp extends javax.swing.JFrame {
                 rePsswdInputActionPerformed(evt);
             }
         });
-        jPanel1.add(rePsswdInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 290, 220, 47));
+        jPanel1.add(rePsswdInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 220, 47));
+
+        nextButton.setBackground(new java.awt.Color(105, 151, 207));
+        nextButton.setForeground(new java.awt.Color(255, 255, 251));
+        nextButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        nextButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                nextButtonMouseClicked(evt);
+            }
+        });
+        nextButton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 251));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setText("Iniciar");
+        nextButton.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 10, 120, 30));
+
+        jPanel1.add(nextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, 130, 47));
 
         rePsswdLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
         rePsswdLabel.setForeground(new java.awt.Color(24, 49, 85));
         rePsswdLabel.setText("Confirmar Contraseña");
-        jPanel1.add(rePsswdLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 260, -1, -1));
-
-        nextButton.setBackground(new java.awt.Color(105, 151, 207));
-        nextButton.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
-        nextButton.setForeground(new java.awt.Color(255, 255, 251));
-        nextButton.setText("⇢");
-        nextButton.setBorder(null);
-        jPanel1.add(nextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 380, 47, 47));
+        jPanel1.add(rePsswdLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, -1, -1));
 
         logIn.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
         logIn.setForeground(new java.awt.Color(105, 151, 207));
@@ -119,10 +139,13 @@ public class SignUp extends javax.swing.JFrame {
                 logInMouseClicked(evt);
             }
         });
-        jPanel1.add(logIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 460, -1, -1));
+        jPanel1.add(logIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 450, -1, -1));
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgSignUp.png"))); // NOI18N
-        jPanel1.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 540));
+        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo2.png"))); // NOI18N
+        jPanel1.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 60, -1, 60));
+
+        circleBg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgSignUp.png"))); // NOI18N
+        jPanel1.add(circleBg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 540));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -151,6 +174,10 @@ public class SignUp extends javax.swing.JFrame {
         new Login().setVisible(true);   // Instancia la clase SingUp y llama a setVisible(true) para hacerse visible
         this.dispose();                   // Cierra la ventana actual en la que se hace clic
     }//GEN-LAST:event_logInMouseClicked
+
+    private void nextButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nextButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nextButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -188,12 +215,15 @@ public class SignUp extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel background;
+    private javax.swing.JLabel circleBg;
     private javax.swing.JTextField emailInput;
     private javax.swing.JLabel emailLabel;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel logIn;
-    private javax.swing.JButton nextButton;
+    private javax.swing.JLabel logoLabel;
+    private javax.swing.JPanel nextButton;
     private javax.swing.JPasswordField psswdInput;
     private javax.swing.JLabel psswdLabel;
     private javax.swing.JPasswordField rePsswdInput;

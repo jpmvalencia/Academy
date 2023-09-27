@@ -34,9 +34,9 @@ public class Login extends javax.swing.JFrame {
         pswdLabel = new javax.swing.JLabel();
         userInput = new javax.swing.JTextField();
         pswdInput = new javax.swing.JPasswordField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        loginLabel = new javax.swing.JLabel();
+        logoImg = new javax.swing.JLabel();
+        circlesBg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Academy");
@@ -109,16 +109,16 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel1.add(pswdInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 300, 266, 47));
 
-        jLabel1.setFont(new java.awt.Font("Rounded Mplus 1c ExtraBold", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(119, 149, 203));
-        jLabel1.setText("Iniciar Sesión");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 50, -1, -1));
+        loginLabel.setFont(new java.awt.Font("Rounded Mplus 1c ExtraBold", 1, 48)); // NOI18N
+        loginLabel.setForeground(new java.awt.Color(119, 149, 203));
+        loginLabel.setText("Iniciar Sesión");
+        jPanel1.add(loginLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 50, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo1.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 340, 70));
+        logoImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo1.png"))); // NOI18N
+        jPanel1.add(logoImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 340, 70));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgLogin.png"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 540));
+        circlesBg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgLogin.png"))); // NOI18N
+        jPanel1.add(circlesBg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 540));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -194,11 +194,11 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel circlesBg;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel loginLabel;
+    private javax.swing.JLabel logoImg;
     private javax.swing.JPanel nextButton;
     private javax.swing.JPasswordField pswdInput;
     private javax.swing.JLabel pswdLabel;
