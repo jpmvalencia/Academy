@@ -4,6 +4,8 @@
  */
 package academy;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -13,6 +15,7 @@ import javax.swing.JTextField;
  * @author U53R
  */
 public class SignUp extends javax.swing.JFrame {
+    List<Student> usuarios = new ArrayList<Student>();
 
     /**
      * Creates new form SignUp
@@ -31,7 +34,7 @@ public class SignUp extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        signUpLabel = new javax.swing.JLabel();
         userInput = new javax.swing.JTextField();
         userLabel = new javax.swing.JLabel();
         emailInput = new javax.swing.JTextField();
@@ -44,6 +47,10 @@ public class SignUp extends javax.swing.JFrame {
         rePsswdLabel = new javax.swing.JLabel();
         logIn = new javax.swing.JLabel();
         logoLabel = new javax.swing.JLabel();
+        nameInput = new javax.swing.JTextField();
+        nameLabel = new javax.swing.JLabel();
+        lastNameLabel = new javax.swing.JLabel();
+        lastNameInput = new javax.swing.JTextField();
         circleBg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -53,22 +60,27 @@ public class SignUp extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(239, 246, 249));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Rounded Mplus 1c ExtraBold", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(119, 149, 203));
-        jLabel1.setText("Registro");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, -1, -1));
+        signUpLabel.setFont(new java.awt.Font("Rounded Mplus 1c ExtraBold", 1, 48)); // NOI18N
+        signUpLabel.setForeground(new java.awt.Color(119, 149, 203));
+        signUpLabel.setText("Registro");
+        jPanel1.add(signUpLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, -1, -1));
 
         userInput.setBackground(new java.awt.Color(105, 151, 207));
         userInput.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
         userInput.setForeground(new java.awt.Color(255, 255, 251));
         userInput.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         userInput.setBorder(null);
+        userInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userInputActionPerformed(evt);
+            }
+        });
         userInput.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 userInputKeyPressed(evt);
             }
         });
-        jPanel1.add(userInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 220, 47));
+        jPanel1.add(userInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 220, 33));
 
         userLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
         userLabel.setForeground(new java.awt.Color(24, 49, 85));
@@ -80,17 +92,17 @@ public class SignUp extends javax.swing.JFrame {
         emailInput.setForeground(new java.awt.Color(255, 255, 251));
         emailInput.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         emailInput.setBorder(null);
-        jPanel1.add(emailInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 220, 47));
+        jPanel1.add(emailInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 220, 33));
 
         emailLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
         emailLabel.setForeground(new java.awt.Color(24, 49, 85));
         emailLabel.setText("Correo Electrónico");
-        jPanel1.add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
+        jPanel1.add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, -1, -1));
 
         psswdLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
         psswdLabel.setForeground(new java.awt.Color(24, 49, 85));
         psswdLabel.setText("Contraseña");
-        jPanel1.add(psswdLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 150, -1, -1));
+        jPanel1.add(psswdLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, -1, -1));
 
         psswdInput.setBackground(new java.awt.Color(105, 151, 207));
         psswdInput.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
@@ -102,7 +114,7 @@ public class SignUp extends javax.swing.JFrame {
                 psswdInputActionPerformed(evt);
             }
         });
-        jPanel1.add(psswdInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, 220, 47));
+        jPanel1.add(psswdInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 220, 33));
 
         rePsswdInput.setBackground(new java.awt.Color(105, 151, 207));
         rePsswdInput.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
@@ -114,7 +126,7 @@ public class SignUp extends javax.swing.JFrame {
                 rePsswdInputActionPerformed(evt);
             }
         });
-        jPanel1.add(rePsswdInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 220, 47));
+        jPanel1.add(rePsswdInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, 220, 33));
 
         nextButton.setBackground(new java.awt.Color(105, 151, 207));
         nextButton.setForeground(new java.awt.Color(255, 255, 251));
@@ -132,12 +144,12 @@ public class SignUp extends javax.swing.JFrame {
         nextLabel.setText("Registrar");
         nextButton.add(nextLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 10, 120, 30));
 
-        jPanel1.add(nextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 370, 130, 47));
+        jPanel1.add(nextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, 130, 47));
 
         rePsswdLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
         rePsswdLabel.setForeground(new java.awt.Color(24, 49, 85));
         rePsswdLabel.setText("Confirmar Contraseña");
-        jPanel1.add(rePsswdLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 250, -1, -1));
+        jPanel1.add(rePsswdLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, -1, -1));
 
         logIn.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
         logIn.setForeground(new java.awt.Color(105, 151, 207));
@@ -148,10 +160,54 @@ public class SignUp extends javax.swing.JFrame {
                 logInMouseClicked(evt);
             }
         });
-        jPanel1.add(logIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, -1, -1));
+        jPanel1.add(logIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 470, -1, -1));
 
         logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo2.png"))); // NOI18N
         jPanel1.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 60, -1, 60));
+
+        nameInput.setBackground(new java.awt.Color(105, 151, 207));
+        nameInput.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
+        nameInput.setForeground(new java.awt.Color(255, 255, 251));
+        nameInput.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        nameInput.setBorder(null);
+        nameInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameInputActionPerformed(evt);
+            }
+        });
+        nameInput.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nameInputKeyPressed(evt);
+            }
+        });
+        jPanel1.add(nameInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, 220, 33));
+
+        nameLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
+        nameLabel.setForeground(new java.awt.Color(24, 49, 85));
+        nameLabel.setText("Nombre");
+        jPanel1.add(nameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, -1, -1));
+
+        lastNameLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
+        lastNameLabel.setForeground(new java.awt.Color(24, 49, 85));
+        lastNameLabel.setText("Apellido");
+        jPanel1.add(lastNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, -1, -1));
+
+        lastNameInput.setBackground(new java.awt.Color(105, 151, 207));
+        lastNameInput.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
+        lastNameInput.setForeground(new java.awt.Color(255, 255, 251));
+        lastNameInput.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        lastNameInput.setBorder(null);
+        lastNameInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lastNameInputActionPerformed(evt);
+            }
+        });
+        lastNameInput.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                lastNameInputKeyPressed(evt);
+            }
+        });
+        jPanel1.add(lastNameInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 220, 33));
 
         circleBg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgSignUp.png"))); // NOI18N
         jPanel1.add(circleBg, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 890, 430));
@@ -186,28 +242,59 @@ public class SignUp extends javax.swing.JFrame {
 
     // Método para el botón registrar
     private void nextButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nextButtonMouseClicked
-        // Valida que los campos esten llenados
+        // Valida que los campos esten ingresados
         if(userInput.getText().isBlank() || String.valueOf(psswdInput.getPassword()).isBlank() || String.valueOf(rePsswdInput.getPassword()).isBlank()  || emailInput.getText().isBlank()) {
-            JOptionPane.showMessageDialog(this, "Todos los datos deben ser llenados.");
+            JOptionPane.showMessageDialog(this, "Todos los datos deben ser ingresados.");
+        } else if(userInput.getText().length() < 2 || userInput.getText().length() > 10) {  // Valida que el usuario este entre 2 y 9 de tamaño
+            JOptionPane.showMessageDialog(this, "El usuario debe tener un tamaños de entre 2 y 9 caracteres.");
         } else if(String.valueOf(psswdInput.getPassword()).length() < 8) {  // Valida que la contraseña tenga mínimo 8 caracteres
             JOptionPane.showMessageDialog(this, "La contraseña debe contener por mínimo 8 caracteres.");
         } else if(!String.valueOf(psswdInput.getPassword()).equals(String.valueOf(rePsswdInput.getPassword()))) {   // Valida que la contraseña esté bien escrita
             JOptionPane.showMessageDialog(this, "Las contraseñas no son iguales.");
         } else {    // En caso de que todos los campos estén correctos, se crea un objeto estudiante
-            Student student = new Student(getUserInput(), getPsswdInput(), getEmailInput());
+            usuarios.add(new Student(getUserInput(), getNameInput(), getLastNameInput(), getPsswdInput(), getEmailInput()));
+            userInput.setText("");
+            nameInput.setText("");
+            lastNameInput.setText("");
+            emailInput.setText("");
+            psswdInput.setText("");
+            rePsswdInput.setText("");
+            for(Student usuario:usuarios) {
+                System.out.println("Usuario: " + usuario.getUsername() + ". Nombre " + usuario.getName() + ". Apellido " + usuario.getLastName() + ". E-Mail: " + usuario.getEmail() + ". Contraseña: " + usuario.getPassword());
+            }
         }
     }//GEN-LAST:event_nextButtonMouseClicked
 
     private void userInputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userInputKeyPressed
         // TODO add your handling code here:
-        char c = evt.getKeyChar();
+        /*char c = evt.getKeyChar();
         
         if(Character.isLetter(c) || Character.isWhitespace(c) || Character.isISOControl(c)) {
             userInput.setEditable(true);
         } else {
             userInput.setEditable(false);
-        }
+        }*/
     }//GEN-LAST:event_userInputKeyPressed
+
+    private void userInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userInputActionPerformed
+
+    private void nameInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameInputActionPerformed
+
+    private void nameInputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameInputKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameInputKeyPressed
+
+    private void lastNameInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lastNameInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lastNameInputActionPerformed
+
+    private void lastNameInputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lastNameInputKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lastNameInputKeyPressed
 
     public JTextField getEmailInput() {
         return emailInput;
@@ -223,6 +310,14 @@ public class SignUp extends javax.swing.JFrame {
 
     public JTextField getUserInput() {
         return userInput;
+    }
+
+    public JTextField getLastNameInput() {
+        return lastNameInput;
+    }
+
+    public JTextField getNameInput() {
+        return nameInput;
     }
 
     /**
@@ -264,16 +359,20 @@ public class SignUp extends javax.swing.JFrame {
     private javax.swing.JLabel circleBg;
     private javax.swing.JTextField emailInput;
     private javax.swing.JLabel emailLabel;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField lastNameInput;
+    private javax.swing.JLabel lastNameLabel;
     private javax.swing.JLabel logIn;
     private javax.swing.JLabel logoLabel;
+    private javax.swing.JTextField nameInput;
+    private javax.swing.JLabel nameLabel;
     private javax.swing.JPanel nextButton;
     private javax.swing.JLabel nextLabel;
     private javax.swing.JPasswordField psswdInput;
     private javax.swing.JLabel psswdLabel;
     private javax.swing.JPasswordField rePsswdInput;
     private javax.swing.JLabel rePsswdLabel;
+    private javax.swing.JLabel signUpLabel;
     private javax.swing.JTextField userInput;
     private javax.swing.JLabel userLabel;
     // End of variables declaration//GEN-END:variables

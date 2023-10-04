@@ -27,6 +27,7 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        pswdRecov = new javax.swing.JLabel();
         signUp = new javax.swing.JLabel();
         nextButton = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
@@ -46,6 +47,17 @@ public class Login extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(239, 246, 249));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        pswdRecov.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
+        pswdRecov.setForeground(new java.awt.Color(105, 151, 207));
+        pswdRecov.setText("Recuperar contraseña");
+        pswdRecov.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        pswdRecov.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pswdRecovMouseClicked(evt);
+            }
+        });
+        jPanel1.add(pswdRecov, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 350, -1, -1));
+
         signUp.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
         signUp.setForeground(new java.awt.Color(105, 151, 207));
         signUp.setText("Crear una cuenta");
@@ -55,7 +67,7 @@ public class Login extends javax.swing.JFrame {
                 signUpMouseClicked(evt);
             }
         });
-        jPanel1.add(signUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(697, 450, -1, -1));
+        jPanel1.add(signUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 450, -1, -1));
 
         nextButton.setBackground(new java.awt.Color(105, 151, 207));
         nextButton.setForeground(new java.awt.Color(255, 255, 251));
@@ -73,17 +85,17 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setText("Iniciar");
         nextButton.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 10, 120, 30));
 
-        jPanel1.add(nextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(689, 380, 130, 47));
+        jPanel1.add(nextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 390, 130, 47));
 
         userLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
         userLabel.setForeground(new java.awt.Color(24, 49, 85));
         userLabel.setText("Usuario");
-        jPanel1.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(719, 150, -1, -1));
+        jPanel1.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 150, -1, -1));
 
         pswdLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
         pswdLabel.setForeground(new java.awt.Color(24, 49, 85));
         pswdLabel.setText("Contraseña");
-        jPanel1.add(pswdLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(702, 260, -1, -1));
+        jPanel1.add(pswdLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 260, -1, -1));
 
         userInput.setBackground(new java.awt.Color(105, 151, 207));
         userInput.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
@@ -95,7 +107,7 @@ public class Login extends javax.swing.JFrame {
                 userInputActionPerformed(evt);
             }
         });
-        jPanel1.add(userInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 190, 266, 47));
+        jPanel1.add(userInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 190, 266, 47));
 
         pswdInput.setBackground(new java.awt.Color(105, 151, 207));
         pswdInput.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 12)); // NOI18N
@@ -107,24 +119,24 @@ public class Login extends javax.swing.JFrame {
                 pswdInputActionPerformed(evt);
             }
         });
-        jPanel1.add(pswdInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 300, 266, 47));
+        jPanel1.add(pswdInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, 266, 47));
 
         loginLabel.setFont(new java.awt.Font("Rounded Mplus 1c ExtraBold", 1, 48)); // NOI18N
         loginLabel.setForeground(new java.awt.Color(119, 149, 203));
         loginLabel.setText("Iniciar Sesión");
-        jPanel1.add(loginLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 50, -1, -1));
+        jPanel1.add(loginLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, -1, -1));
 
         logoImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo1.png"))); // NOI18N
-        jPanel1.add(logoImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 340, 70));
+        jPanel1.add(logoImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 340, 70));
 
         circlesBg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgLogin.png"))); // NOI18N
-        jPanel1.add(circlesBg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 540));
+        jPanel1.add(circlesBg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 810, 430));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 960, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,15 +160,22 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_signUpMouseClicked
 
     private void nextButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nextButtonMouseClicked
-        if("a".equals(userInput.getText())) {
-            if("a".equals(String.valueOf(pswdInput.getPassword()))){
+        if("admin".equals(userInput.getText())) {
+            if("admin".equals(String.valueOf(pswdInput.getPassword()))){
                 // Ingresar a Content
+                new Profile().setVisible(true);
+                this.dispose();
                 System.out.print("Usuario: " + userInput.getText() + "\n Contraseña: " + String.valueOf(pswdInput.getPassword()));
             }
         } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "No se logeó");
+            javax.swing.JOptionPane.showMessageDialog(this, "Datos incorrectos.");
         }
     }//GEN-LAST:event_nextButtonMouseClicked
+
+    private void pswdRecovMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pswdRecovMouseClicked
+        // TODO add your handling code here:
+        System.out.println("Recuperar contraseña.");
+    }//GEN-LAST:event_pswdRecovMouseClicked
 
     /**
      * @param args the command line arguments
@@ -202,6 +221,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel nextButton;
     private javax.swing.JPasswordField pswdInput;
     private javax.swing.JLabel pswdLabel;
+    private javax.swing.JLabel pswdRecov;
     private javax.swing.JLabel signUp;
     private javax.swing.JTextField userInput;
     private javax.swing.JLabel userLabel;
