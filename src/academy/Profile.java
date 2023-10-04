@@ -44,6 +44,7 @@ public class Profile extends javax.swing.JFrame {
         circlesBg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Academy");
         setLocationByPlatform(true);
         setResizable(false);
 
