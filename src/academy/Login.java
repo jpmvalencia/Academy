@@ -163,7 +163,7 @@ public class Login extends javax.swing.JFrame {
         if("admin".equals(userInput.getText())) {
             if("admin".equals(String.valueOf(pswdInput.getPassword()))){
                 // Ingresar a Content
-                new Profile().setVisible(true);
+                new Content().setVisible(true);
                 this.dispose();
                 System.out.print("Usuario: " + userInput.getText() + "\n Contraseña: " + String.valueOf(pswdInput.getPassword()));
             }

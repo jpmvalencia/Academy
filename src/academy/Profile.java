@@ -179,7 +179,7 @@ public class Profile extends javax.swing.JFrame {
 
     private void prevButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prevButtonMouseClicked
         // TODO add your handling code here:
-        new Login().setVisible(true);
+        new Content().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_prevButtonMouseClicked
 
