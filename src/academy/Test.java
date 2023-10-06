@@ -35,6 +35,8 @@ public class Test extends javax.swing.JFrame {
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
+        tema1 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
         prevButton = new javax.swing.JPanel();
         prevLabel = new javax.swing.JLabel();
         nextButton = new javax.swing.JPanel();
@@ -95,6 +97,24 @@ public class Test extends javax.swing.JFrame {
         jRadioButton4.setForeground(new java.awt.Color(255, 255, 251));
         jRadioButton4.setText("Secuencia");
         jPanel1.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, -1, -1));
+
+        tema1.setBackground(new java.awt.Color(105, 151, 207));
+        tema1.setForeground(new java.awt.Color(255, 255, 251));
+        tema1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tema1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tema1MouseClicked(evt);
+            }
+        });
+        tema1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 251));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Estructuras de Control");
+        tema1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 220, 30));
+
+        jPanel1.add(tema1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 460, 240, 47));
 
         prevButton.setBackground(new java.awt.Color(171, 225, 248));
         prevButton.setForeground(new java.awt.Color(255, 255, 251));
@@ -165,6 +185,12 @@ public class Test extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_prevButtonMouseClicked
 
+    private void tema1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tema1MouseClicked
+        // TODO add your handling code here:
+        new Topic().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_tema1MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -203,6 +229,7 @@ public class Test extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgTest;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
@@ -214,6 +241,7 @@ public class Test extends javax.swing.JFrame {
     private javax.swing.JPanel prevButton;
     private javax.swing.JLabel prevLabel;
     private javax.swing.JLabel questLabel;
+    private javax.swing.JPanel tema1;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }

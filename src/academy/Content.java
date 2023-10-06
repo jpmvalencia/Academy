@@ -96,7 +96,7 @@ public class Content extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 251));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Estructuras de control");
+        jLabel5.setText("Estructuras de Control");
         tema1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 220, 30));
 
         jPanel1.add(tema1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 240, 47));
@@ -220,6 +220,8 @@ public class Content extends javax.swing.JFrame {
 
     private void tema1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tema1MouseClicked
         // TODO add your handling code here:
+        new Topic().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_tema1MouseClicked
 
     private void tema3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tema3MouseClicked

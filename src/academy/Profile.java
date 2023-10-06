@@ -92,10 +92,10 @@ public class Profile extends javax.swing.JFrame {
         prevLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
         prevLabel.setForeground(new java.awt.Color(255, 255, 251));
         prevLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        prevLabel.setText("Atrás");
-        prevButton.add(prevLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 70, 30));
+        prevLabel.setText("Contenido");
+        prevButton.add(prevLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, 30));
 
-        jPanel1.add(prevButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 90, 47));
+        jPanel1.add(prevButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 120, 47));
 
         jTextPane1.setEditable(false);
         jTextPane1.setBackground(new java.awt.Color(171, 225, 248));
