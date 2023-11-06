@@ -1,8 +1,5 @@
 package academy;
 
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-
 public class Student {
     private String username;
     private String name;
@@ -11,12 +8,12 @@ public class Student {
     private String password;
     
     // El constructor recibe de la clase SignUp username, password y email
-    public Student(JTextField username, JTextField name, JTextField lastName, JPasswordField password, JTextField email) {
-        this.username = username.getText();
-        this.name = name.getText();
-        this.lastName = lastName.getText();
-        this.password = String.valueOf(password.getPassword());
-        this.email = email.getText();
+    public Student(String username, String name, String lastName, String password, String email) {
+        this.username = username;
+        this.name = name;
+        this.lastName = lastName;
+        this.password = password;
+        this.email = email;
     }
 
     public String getUsername() {

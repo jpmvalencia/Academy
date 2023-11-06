@@ -4,6 +4,7 @@
  */
 package academy;
 
+import dao.EstudianteDao;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -251,18 +252,24 @@ public class SignUp extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "La contraseña debe contener por mínimo 8 caracteres.");
         } else if(!String.valueOf(psswdInput.getPassword()).equals(String.valueOf(rePsswdInput.getPassword()))) {   // Valida que la contraseña esté bien escrita
             JOptionPane.showMessageDialog(this, "Las contraseñas no son iguales.");
-        } else {    // En caso de que todos los campos estén correctos, se crea un objeto estudiante
-            usuarios.add(new Student(getUserInput(), getNameInput(), getLastNameInput(), getPsswdInput(), getEmailInput()));
+        } else {    // En caso de que todos los campos estén correctos
+            
+            
+            Student estudiante = new Student(this.userInput.getText(), this.nameInput.getText(), this.lastNameInput.getText(), String.valueOf(this.psswdInput.getPassword()), this.emailInput.getText());
+            EstudianteDao dao = new EstudianteDao();
+            dao.agregar(estudiante);
+            dao.insertarUsuarioEnDB();
+            
+            // Limpiar campos
             userInput.setText("");
             nameInput.setText("");
             lastNameInput.setText("");
             emailInput.setText("");
             psswdInput.setText("");
             rePsswdInput.setText("");
-            for(Student usuario:usuarios) {
-                System.out.println("Usuario: " + usuario.getUsername() + ". Nombre " + usuario.getName() + ". Apellido " + usuario.getLastName() + ". E-Mail: " + usuario.getEmail() + ". Contraseña: " + usuario.getPassword());
-            }
         }
+        
+
     }//GEN-LAST:event_nextButtonMouseClicked
 
     private void userInputKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_userInputKeyPressed
