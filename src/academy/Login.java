@@ -4,6 +4,8 @@
  */
 package academy;
 
+import dao.EstudianteDao;
+
 /**
  *
  * @author U53R
@@ -160,13 +162,23 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_signUpMouseClicked
 
     private void nextButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nextButtonMouseClicked
-        if("admin".equals(userInput.getText())) {
+        /*if("admin".equals(userInput.getText())) {
             if("admin".equals(String.valueOf(pswdInput.getPassword()))){
                 // Ingresar a Content
                 new Content().setVisible(true);
                 this.dispose();
                 System.out.print("Usuario: " + userInput.getText() + "\n Contraseña: " + String.valueOf(pswdInput.getPassword()));
             }
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Datos incorrectos.");
+        }*/
+        EstudianteDao dao = new EstudianteDao();
+        boolean ingresoExitoso = dao.iniciarSesion(this.userInput.getText(), String.valueOf(this.pswdInput.getPassword()));
+        
+        if (ingresoExitoso) {
+            // Ingresar a Content
+            new Content().setVisible(true);
+            this.dispose();
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "Datos incorrectos.");
         }

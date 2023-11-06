@@ -69,4 +69,28 @@ public class EstudianteDao {
             Logger.getLogger(EstudianteDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public boolean iniciarSesion(String username, String pwd) {
+        try {
+            Class.forName(driver);
+            Connection conexion = DriverManager.getConnection(conexionUrl, usuario, password);
+            Statement statement = conexion.createStatement();
+
+            String sql = "SELECT * FROM `estudiantes` WHERE `username` = '" + username + "' AND `password` = '" + pwd + "'";
+            ResultSet result = statement.executeQuery(sql);
+
+            if (result.next()) {
+                // Las credenciales son válidas, el usuario ha iniciado sesión exitosamente
+                conexion.close();
+                return true;
+            } else {
+                // Las credenciales no son válidas
+                conexion.close();
+                return false;
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(EstudianteDao.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
 }
