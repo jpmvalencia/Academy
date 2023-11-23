@@ -2,19 +2,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package academy;
+package gui;
 
 /**
  *
  * @author U53R
  */
-public class Test extends javax.swing.JFrame {
-
+public class TestGui extends javax.swing.JFrame {
+    
+    private static String nombre;
     /**
      * Creates new form Test
      */
-    public Test() {
+    public TestGui(String nombre) {
         initComponents();
+        this.nombre = nombre;
     }
 
     /**
@@ -187,7 +189,7 @@ public class Test extends javax.swing.JFrame {
 
     private void tema1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tema1MouseClicked
         // TODO add your handling code here:
-        new Topic().setVisible(true);
+        new TopicGui(nombre).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_tema1MouseClicked
 
@@ -208,20 +210,21 @@ public class Test extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Test.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TestGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Test.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TestGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Test.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TestGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Test.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TestGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Test().setVisible(true);
+                new TestGui(nombre).setVisible(true);
             }
         });
     }

@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package academy;
+package gui;
 
+import clases.Student;
 import dao.EstudianteDao;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,13 +16,13 @@ import javax.swing.JTextField;
  *
  * @author U53R
  */
-public class SignUp extends javax.swing.JFrame {
+public class SignUpGui extends javax.swing.JFrame {
     List<Student> usuarios = new ArrayList<Student>();
 
     /**
      * Creates new form SignUp
      */
-    public SignUp() {
+    public SignUpGui() {
         initComponents();
     }
 
@@ -237,7 +238,7 @@ public class SignUp extends javax.swing.JFrame {
 
     private void logInMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logInMouseClicked
         // TODO add your handling code here:
-        new Login().setVisible(true);   // Instancia la clase SingUp y llama a setVisible(true) para hacerse visible
+        new LoginGui().setVisible(true);   // Instancia la clase SingUp y llama a setVisible(true) para hacerse visible
         this.dispose();                   // Cierra la ventana actual en la que se hace clic
     }//GEN-LAST:event_logInMouseClicked
 
@@ -344,20 +345,21 @@ public class SignUp extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SignUpGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SignUpGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SignUpGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SignUp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SignUpGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SignUp().setVisible(true);
+                new SignUpGui().setVisible(true);
             }
         });
     }

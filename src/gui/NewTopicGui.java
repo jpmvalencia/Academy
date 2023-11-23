@@ -2,18 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package academy;
+package gui;
+
+import clases.Topic;
+import dao.TemaDao;
+import javax.swing.JOptionPane;
 
 /**
  *
- * @author U53R
+ * @author Usuario
  */
-public class Topic extends javax.swing.JFrame {
+public class NewTopicGui extends javax.swing.JFrame {
 
     /**
-     * Creates new form Topic
+     * Creates new form NewTopic
      */
-    public Topic() {
+    public NewTopicGui() {
         initComponents();
     }
 
@@ -27,14 +31,14 @@ public class Topic extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        titleText = new javax.swing.JTextField();
         logoLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        contentText = new javax.swing.JTextArea();
         closeSessionLabel = new javax.swing.JLabel();
         profileLabel = new javax.swing.JLabel();
-        prevButton1 = new javax.swing.JPanel();
-        prevLabel1 = new javax.swing.JLabel();
+        saveButton = new javax.swing.JPanel();
+        saveLabel = new javax.swing.JLabel();
         prevButton = new javax.swing.JPanel();
         prevLabel = new javax.swing.JLabel();
         circlesBg = new javax.swing.JLabel();
@@ -47,10 +51,13 @@ public class Topic extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(239, 246, 249));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Rounded Mplus 1c ExtraBold", 1, 48)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(119, 149, 203));
-        jLabel2.setText("Estructura de Control");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, -1, -1));
+        titleText.setBackground(new java.awt.Color(239, 246, 249));
+        titleText.setFont(new java.awt.Font("Rounded Mplus 1c ExtraBold", 1, 48)); // NOI18N
+        titleText.setForeground(new java.awt.Color(119, 149, 203));
+        titleText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        titleText.setText("Nombre del Tema");
+        titleText.setBorder(null);
+        jPanel1.add(titleText, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 540, -1));
 
         logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo2.png"))); // NOI18N
         jPanel1.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 30, -1, 60));
@@ -59,17 +66,15 @@ public class Topic extends javax.swing.JFrame {
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setOpaque(true);
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setBackground(new java.awt.Color(171, 225, 248));
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 12)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(24, 49, 85));
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Las estructuras de control son un concepto fundamental en la programación y se utilizan para controlar el flujo de ejecución de un programa. Hay tres tipos principales de estructuras de control:\n\nEstructuras de control secuenciales: Estas estructuras permiten que las instrucciones se ejecuten en secuencia, una después de la otra, en el orden en que aparecen en el programa. No involucran toma de decisiones ni bucles. Ejemplos de esto son las instrucciones simples que se ejecutan una tras otra.\n\nEstructuras de control de decisión: Estas estructuras se utilizan para tomar decisiones en un programa. Los condicionales, como las declaraciones \"if\" (si) y \"else\" (si no), permiten que el programa elija diferentes caminos de ejecución basados en condiciones específicas. Por ejemplo, puedes escribir un programa que realice una acción si se cumple una condición y otra acción si no se cumple.\n\nEstructuras de control de bucle: Estas estructuras se utilizan para repetir una serie de instrucciones múltiples veces. Los bucles, como \"for\" (para) y \"while\" (mientras), permiten que un bloque de código se ejecute repetidamente mientras se cumpla una condición. Esto es útil para automatizar tareas que deben realizarse varias veces.\n\n");
-        jTextArea1.setWrapStyleWord(true);
-        jTextArea1.setFocusable(false);
-        jScrollPane1.setViewportView(jTextArea1);
+        contentText.setBackground(new java.awt.Color(171, 225, 248));
+        contentText.setColumns(20);
+        contentText.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 12)); // NOI18N
+        contentText.setForeground(new java.awt.Color(24, 49, 85));
+        contentText.setLineWrap(true);
+        contentText.setRows(5);
+        contentText.setText("(Ingrese el contenido del tema)");
+        contentText.setWrapStyleWord(true);
+        jScrollPane1.setViewportView(contentText);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 840, 270));
 
@@ -95,23 +100,23 @@ public class Topic extends javax.swing.JFrame {
         });
         jPanel1.add(profileLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 50, -1, -1));
 
-        prevButton1.setBackground(new java.awt.Color(105, 151, 207));
-        prevButton1.setForeground(new java.awt.Color(255, 255, 251));
-        prevButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        prevButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        saveButton.setBackground(new java.awt.Color(105, 151, 207));
+        saveButton.setForeground(new java.awt.Color(255, 255, 251));
+        saveButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        saveButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                prevButton1MouseClicked(evt);
+                saveButtonMouseClicked(evt);
             }
         });
-        prevButton1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        saveButton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        prevLabel1.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
-        prevLabel1.setForeground(new java.awt.Color(255, 255, 251));
-        prevLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        prevLabel1.setText("Ir al Test");
-        prevButton1.add(prevLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, 30));
+        saveLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
+        saveLabel.setForeground(new java.awt.Color(255, 255, 251));
+        saveLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        saveLabel.setText("Guardar");
+        saveButton.add(saveLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, 30));
 
-        jPanel1.add(prevButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 450, 120, 47));
+        jPanel1.add(saveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 450, 120, 47));
 
         prevButton.setBackground(new java.awt.Color(105, 151, 207));
         prevButton.setForeground(new java.awt.Color(255, 255, 251));
@@ -126,7 +131,7 @@ public class Topic extends javax.swing.JFrame {
         prevLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
         prevLabel.setForeground(new java.awt.Color(255, 255, 251));
         prevLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        prevLabel.setText("Contenido");
+        prevLabel.setText("Volver");
         prevButton.add(prevLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, 30));
 
         jPanel1.add(prevButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, 120, 47));
@@ -150,27 +155,38 @@ public class Topic extends javax.swing.JFrame {
 
     private void closeSessionLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeSessionLabelMouseClicked
         // TODO add your handling code here:
-        new Login().setVisible(true);   // Crea y muestra el login
+        new LoginGui().setVisible(true);   // Crea y muestra el login
         this.dispose();                   // Cierra la ventana actual
     }//GEN-LAST:event_closeSessionLabelMouseClicked
 
     private void profileLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileLabelMouseClicked
         // TODO add your handling code here:
-        new Profile().setVisible(true);   // Instancia la clase Profile y llama a setVisible(true) para hacerse visible
+        new ProfileGui().setVisible(true);   // Instancia la clase ProfileGui y llama a setVisible(true) para hacerse visible
         this.dispose();                     // Cierra la ventana actual en la que se hace clic
     }//GEN-LAST:event_profileLabelMouseClicked
 
+    private void saveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveButtonMouseClicked
+        // TODO add your handling code here:
+        if(this.titleText.getText().length() > 22) {
+            JOptionPane.showMessageDialog(this, "Ingresa un título menor a 22 caracteres.");
+        } else if(this.contentText.getText().length() > 5000) {
+            JOptionPane.showMessageDialog(this, "Ingresa un contenido menor a 5000 caracteres.");
+        } else {
+            Topic tema = new Topic(this.titleText.getText(), this.contentText.getText());
+            TemaDao dao = new TemaDao();
+            dao.agregar(tema);
+            dao.insertarTemaEnDB();
+
+            new OptionsGui().setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_saveButtonMouseClicked
+
     private void prevButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prevButtonMouseClicked
         // TODO add your handling code here:
-        new Content().setVisible(true);
+        new OptionsGui().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_prevButtonMouseClicked
-
-    private void prevButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prevButton1MouseClicked
-        // TODO add your handling code here:
-        new Test().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_prevButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -189,20 +205,21 @@ public class Topic extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Topic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewTopicGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Topic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewTopicGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Topic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewTopicGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Topic.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(NewTopicGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Topic().setVisible(true);
+                new NewTopicGui().setVisible(true);
             }
         });
     }
@@ -210,15 +227,15 @@ public class Topic extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel circlesBg;
     private javax.swing.JLabel closeSessionLabel;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextArea contentText;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JPanel prevButton;
-    private javax.swing.JPanel prevButton1;
     private javax.swing.JLabel prevLabel;
-    private javax.swing.JLabel prevLabel1;
     private javax.swing.JLabel profileLabel;
+    private javax.swing.JPanel saveButton;
+    private javax.swing.JLabel saveLabel;
+    private javax.swing.JTextField titleText;
     // End of variables declaration//GEN-END:variables
 }

@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package academy;
+package gui;
 
 /**
  *
- * @author U53R
+ * @author Usuario
  */
-public class Content extends javax.swing.JFrame {
+public class OptionsGui extends javax.swing.JFrame {
 
     /**
-     * Creates new form Content
+     * Creates new form Options
      */
-    public Content() {
+    public OptionsGui() {
         initComponents();
     }
 
@@ -27,22 +27,22 @@ public class Content extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        closeSessionLabel = new javax.swing.JLabel();
-        profileLabel = new javax.swing.JLabel();
         logoLabel = new javax.swing.JLabel();
-        tema1 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        tema4 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        content = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        closeSessionLabel = new javax.swing.JLabel();
         tema2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         tema3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        tema4 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        tema5 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        profileLabel = new javax.swing.JLabel();
         tema6 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
+        createTopic = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
         circlesBg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -53,10 +53,44 @@ public class Content extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(239, 246, 249));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setFont(new java.awt.Font("Rounded Mplus 1c ExtraBold", 1, 48)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(119, 149, 203));
-        jLabel3.setText("Contenido");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, -1, -1));
+        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo2.png"))); // NOI18N
+        jPanel1.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 60, -1, 60));
+
+        tema4.setBackground(new java.awt.Color(105, 151, 207));
+        tema4.setForeground(new java.awt.Color(255, 255, 251));
+        tema4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        tema4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tema4MouseClicked(evt);
+            }
+        });
+        tema4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel7.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 251));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Próximamente");
+        tema4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 220, 30));
+
+        jPanel1.add(tema4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 240, 47));
+
+        content.setBackground(new java.awt.Color(105, 151, 207));
+        content.setForeground(new java.awt.Color(255, 255, 251));
+        content.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        content.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                contentMouseClicked(evt);
+            }
+        });
+        content.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 251));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("Ver Temas");
+        content.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 220, 30));
+
+        jPanel1.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 240, 47));
 
         closeSessionLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
         closeSessionLabel.setForeground(new java.awt.Color(105, 151, 207));
@@ -68,38 +102,6 @@ public class Content extends javax.swing.JFrame {
             }
         });
         jPanel1.add(closeSessionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, -1, -1));
-
-        profileLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
-        profileLabel.setForeground(new java.awt.Color(105, 151, 207));
-        profileLabel.setText("Mi Cuenta");
-        profileLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        profileLabel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                profileLabelMouseClicked(evt);
-            }
-        });
-        jPanel1.add(profileLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 80, -1, -1));
-
-        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo2.png"))); // NOI18N
-        jPanel1.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 60, -1, 60));
-
-        tema1.setBackground(new java.awt.Color(105, 151, 207));
-        tema1.setForeground(new java.awt.Color(255, 255, 251));
-        tema1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        tema1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tema1MouseClicked(evt);
-            }
-        });
-        tema1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel5.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 251));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Estructuras de Control");
-        tema1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 220, 30));
-
-        jPanel1.add(tema1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 240, 47));
 
         tema2.setBackground(new java.awt.Color(105, 151, 207));
         tema2.setForeground(new java.awt.Color(255, 255, 251));
@@ -137,41 +139,21 @@ public class Content extends javax.swing.JFrame {
 
         jPanel1.add(tema3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 240, 47));
 
-        tema4.setBackground(new java.awt.Color(105, 151, 207));
-        tema4.setForeground(new java.awt.Color(255, 255, 251));
-        tema4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        tema4.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel3.setFont(new java.awt.Font("Rounded Mplus 1c ExtraBold", 1, 48)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(119, 149, 203));
+        jLabel3.setText("OPCIONES");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, -1, -1));
+
+        profileLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
+        profileLabel.setForeground(new java.awt.Color(105, 151, 207));
+        profileLabel.setText("Mi Cuenta");
+        profileLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        profileLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tema4MouseClicked(evt);
+                profileLabelMouseClicked(evt);
             }
         });
-        tema4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel7.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 251));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Próximamente");
-        tema4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 220, 30));
-
-        jPanel1.add(tema4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 240, 47));
-
-        tema5.setBackground(new java.awt.Color(105, 151, 207));
-        tema5.setForeground(new java.awt.Color(255, 255, 251));
-        tema5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        tema5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tema5MouseClicked(evt);
-            }
-        });
-        tema5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel8.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 251));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Próximamente");
-        tema5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 220, 30));
-
-        jPanel1.add(tema5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 240, 47));
+        jPanel1.add(profileLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 80, -1, -1));
 
         tema6.setBackground(new java.awt.Color(105, 151, 207));
         tema6.setForeground(new java.awt.Color(255, 255, 251));
@@ -190,6 +172,24 @@ public class Content extends javax.swing.JFrame {
         tema6.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 220, 30));
 
         jPanel1.add(tema6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 240, 47));
+
+        createTopic.setBackground(new java.awt.Color(105, 151, 207));
+        createTopic.setForeground(new java.awt.Color(255, 255, 251));
+        createTopic.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        createTopic.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                createTopicMouseClicked(evt);
+            }
+        });
+        createTopic.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 251));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Crear Tema");
+        createTopic.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 220, 30));
+
+        jPanel1.add(createTopic, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 240, 47));
 
         circlesBg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgContent.png"))); // NOI18N
         jPanel1.add(circlesBg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 540));
@@ -210,19 +210,25 @@ public class Content extends javax.swing.JFrame {
 
     private void closeSessionLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeSessionLabelMouseClicked
         // TODO add your handling code here:
-        new Login().setVisible(true);   // Crea y muestra el login
+        new LoginGui().setVisible(true);   // Crea y muestra el login
         this.dispose();                   // Cierra la ventana actual
     }//GEN-LAST:event_closeSessionLabelMouseClicked
+
+    private void profileLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileLabelMouseClicked
+        // TODO add your handling code here:
+        new ProfileGui().setVisible(true);   // Instancia la clase ProfileGui y llama a setVisible(true) para hacerse visible
+        this.dispose();                     // Cierra la ventana actual en la que se hace clic
+    }//GEN-LAST:event_profileLabelMouseClicked
+
+    private void createTopicMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createTopicMouseClicked
+        // TODO add your handling code here:
+        new NewTopicGui().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_createTopicMouseClicked
 
     private void tema2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tema2MouseClicked
         // Go to next
     }//GEN-LAST:event_tema2MouseClicked
-
-    private void tema1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tema1MouseClicked
-        // TODO add your handling code here:
-        new Topic().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_tema1MouseClicked
 
     private void tema3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tema3MouseClicked
         // TODO add your handling code here:
@@ -232,19 +238,15 @@ public class Content extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tema4MouseClicked
 
-    private void tema5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tema5MouseClicked
+    private void contentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contentMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tema5MouseClicked
+        new ContentGui().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_contentMouseClicked
 
     private void tema6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tema6MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tema6MouseClicked
-
-    private void profileLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileLabelMouseClicked
-        // TODO add your handling code here:
-        new Profile().setVisible(true);   // Instancia la clase Profile y llama a setVisible(true) para hacerse visible
-        this.dispose();                     // Cierra la ventana actual en la que se hace clic
-    }//GEN-LAST:event_profileLabelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -263,20 +265,21 @@ public class Content extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Content.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OptionsGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Content.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OptionsGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Content.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OptionsGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Content.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(OptionsGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Content().setVisible(true);
+                new OptionsGui().setVisible(true);
             }
         });
     }
@@ -284,6 +287,8 @@ public class Content extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel circlesBg;
     private javax.swing.JLabel closeSessionLabel;
+    private javax.swing.JPanel content;
+    private javax.swing.JPanel createTopic;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -294,11 +299,9 @@ public class Content extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JLabel profileLabel;
-    private javax.swing.JPanel tema1;
     private javax.swing.JPanel tema2;
     private javax.swing.JPanel tema3;
     private javax.swing.JPanel tema4;
-    private javax.swing.JPanel tema5;
     private javax.swing.JPanel tema6;
     // End of variables declaration//GEN-END:variables
 }

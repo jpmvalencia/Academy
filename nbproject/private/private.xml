@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Usuario/workspace/Academy/src/academy/Student.java</file>
-            <file>file:/C:/Users/Usuario/workspace/Academy/src/dao/EstudianteDao.java</file>
-            <file>file:/C:/Users/Usuario/workspace/Academy/src/academy/SignUp.java</file>
+            <file>file:/C:/Users/Usuario/workspace/Academy/src/clases/Topic.java</file>
+            <file>file:/C:/Users/Usuario/workspace/Academy/src/gui/TopicGui.java</file>
+            <file>file:/C:/Users/Usuario/workspace/Academy/src/gui/TestGui.java</file>
+            <file>file:/C:/Users/Usuario/workspace/Academy/src/gui/ContentGui.java</file>
         </group>
     </open-files>
 </project-private>

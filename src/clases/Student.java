@@ -1,4 +1,4 @@
-package academy;
+package clases;
 
 public class Student {
     private String username;

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package academy;
+package gui;
 
 import dao.EstudianteDao;
 
@@ -10,12 +10,12 @@ import dao.EstudianteDao;
  *
  * @author U53R
  */
-public class Login extends javax.swing.JFrame {
+public class LoginGui extends javax.swing.JFrame {
 
     /**
      * Creates new form Login
      */
-    public Login() {
+    public LoginGui() {
         initComponents();
     }
 
@@ -157,31 +157,33 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_pswdInputActionPerformed
 
     private void signUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signUpMouseClicked
-        new SignUp().setVisible(true);  // Instancia la clase SingUp y llama a setVisible(true) para hacerse visible
+        new SignUpGui().setVisible(true);  // Instancia la clase SingUp y llama a setVisible(true) para hacerse visible
         this.dispose();                   // Cierra la ventana actual en la que se hace clic
     }//GEN-LAST:event_signUpMouseClicked
 
     private void nextButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nextButtonMouseClicked
-        /*if("admin".equals(userInput.getText())) {
+        if("admin".equals(userInput.getText())) {
             if("admin".equals(String.valueOf(pswdInput.getPassword()))){
-                // Ingresar a Content
-                new Content().setVisible(true);
+                // Ingresar a ContentGui
+                new OptionsGui().setVisible(true);
                 this.dispose();
                 System.out.print("Usuario: " + userInput.getText() + "\n Contraseña: " + String.valueOf(pswdInput.getPassword()));
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "Datos incorrectos.");
             }
         } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "Datos incorrectos.");
-        }*/
-        EstudianteDao dao = new EstudianteDao();
-        boolean ingresoExitoso = dao.iniciarSesion(this.userInput.getText(), String.valueOf(this.pswdInput.getPassword()));
-        
-        if (ingresoExitoso) {
-            // Ingresar a Content
-            new Content().setVisible(true);
-            this.dispose();
-        } else {
-            javax.swing.JOptionPane.showMessageDialog(this, "Datos incorrectos.");
+            EstudianteDao dao = new EstudianteDao();
+            boolean ingresoExitoso = dao.iniciarSesion(this.userInput.getText(), String.valueOf(this.pswdInput.getPassword()));
+
+            if (ingresoExitoso) {
+                // Ingresar a ContentGui
+                new ContentGui().setVisible(true);
+                this.dispose();
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "Datos incorrectos.");
+            }
         }
+        
     }//GEN-LAST:event_nextButtonMouseClicked
 
     private void pswdRecovMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pswdRecovMouseClicked
@@ -206,20 +208,21 @@ public class Login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginGui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                new LoginGui().setVisible(true);
             }
         });
     }

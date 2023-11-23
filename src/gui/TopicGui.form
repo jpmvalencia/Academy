@@ -55,11 +55,12 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cb" green="95" red="77" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Estructura de Control"/>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="T&#xed;tulo"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="160" y="30" width="-1" height="-1"/>
+              <AbsoluteConstraints x="160" y="30" width="540" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -109,7 +110,7 @@
                 </Property>
                 <Property name="lineWrap" type="boolean" value="true"/>
                 <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="Las estructuras de control son un concepto fundamental en la programaci&#xf3;n y se utilizan para controlar el flujo de ejecuci&#xf3;n de un programa. Hay tres tipos principales de estructuras de control:&#xa;&#xa;Estructuras de control secuenciales: Estas estructuras permiten que las instrucciones se ejecuten en secuencia, una despu&#xe9;s de la otra, en el orden en que aparecen en el programa. No involucran toma de decisiones ni bucles. Ejemplos de esto son las instrucciones simples que se ejecutan una tras otra.&#xa;&#xa;Estructuras de control de decisi&#xf3;n: Estas estructuras se utilizan para tomar decisiones en un programa. Los condicionales, como las declaraciones &quot;if&quot; (si) y &quot;else&quot; (si no), permiten que el programa elija diferentes caminos de ejecuci&#xf3;n basados en condiciones espec&#xed;ficas. Por ejemplo, puedes escribir un programa que realice una acci&#xf3;n si se cumple una condici&#xf3;n y otra acci&#xf3;n si no se cumple.&#xa;&#xa;Estructuras de control de bucle: Estas estructuras se utilizan para repetir una serie de instrucciones m&#xfa;ltiples veces. Los bucles, como &quot;for&quot; (para) y &quot;while&quot; (mientras), permiten que un bloque de c&#xf3;digo se ejecute repetidamente mientras se cumpla una condici&#xf3;n. Esto es &#xfa;til para automatizar tareas que deben realizarse varias veces.&#xa;&#xa;"/>
+                <Property name="text" type="java.lang.String" value="Contenido"/>
                 <Property name="wrapStyleWord" type="boolean" value="true"/>
                 <Property name="focusable" type="boolean" value="false"/>
               </Properties>
@@ -238,7 +239,7 @@
                   <Color blue="fb" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Contenido"/>
+                <Property name="text" type="java.lang.String" value="Volver"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

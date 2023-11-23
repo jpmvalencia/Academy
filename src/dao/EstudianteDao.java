@@ -4,7 +4,7 @@
  */
 package dao;
 
-import academy.Student;
+import clases.Student;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
