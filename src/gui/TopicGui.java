@@ -5,21 +5,38 @@
 package gui;
 
 import dao.TemaDao;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author U53R
  */
 public class TopicGui extends javax.swing.JFrame {
-    private static String nombre;
+    private static String nombre, usuario;
     
     /**
      * Creates new form Topic
      */
-    public TopicGui(String nombre) {
+    public TopicGui(String nombre, String usuario) {
         initComponents();
+        
+        if (usuario.equals("PROFESOR")) {
+            jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/trash-10-32.png"))); // NOI18N
+            jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 460, -1, -1));
+
+            jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/edit-2-32.png"))); // NOI18N
+            jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, -1, -1));
+
+            titleText.setEditable(true);
+            titleText.setFocusable(true);
+            
+            jTextArea1.setEditable(true);
+            jTextArea1.setFocusable(true);
+        }
+        
         this.nombre = nombre;
-        jLabel2.setText(nombre);
+        this.usuario = usuario;
+        titleText.setText(nombre);
         jTextArea1.setText(new TemaDao().obtenerContenidoTema(nombre));
     }
 
@@ -33,7 +50,9 @@ public class TopicGui extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        titleText = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         logoLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -53,11 +72,30 @@ public class TopicGui extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(239, 246, 249));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Rounded Mplus 1c ExtraBold", 1, 48)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(119, 149, 203));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Título");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 540, -1));
+        titleText.setEditable(false);
+        titleText.setBackground(new java.awt.Color(239, 246, 249));
+        titleText.setFont(new java.awt.Font("Rounded Mplus 1c ExtraBold", 1, 48)); // NOI18N
+        titleText.setForeground(new java.awt.Color(119, 149, 203));
+        titleText.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        titleText.setText("Nombre del Tema");
+        titleText.setBorder(null);
+        titleText.setFocusable(false);
+        jPanel1.add(titleText, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 540, -1));
+
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, -1, -1));
+
+        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 460, -1, -1));
 
         logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo2.png"))); // NOI18N
         jPanel1.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 30, -1, 60));
@@ -163,21 +201,44 @@ public class TopicGui extends javax.swing.JFrame {
 
     private void profileLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileLabelMouseClicked
         // TODO add your handling code here:
-        new ProfileGui().setVisible(true);   // Instancia la clase ProfileGui y llama a setVisible(true) para hacerse visible
+        new ProfileGui(usuario).setVisible(true);   // Instancia la clase ProfileGui y llama a setVisible(true) para hacerse visible
         this.dispose();                     // Cierra la ventana actual en la que se hace clic
     }//GEN-LAST:event_profileLabelMouseClicked
 
     private void prevButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prevButtonMouseClicked
         // TODO add your handling code here:
-        new ContentGui().setVisible(true);
+        new ContentGui(usuario).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_prevButtonMouseClicked
 
     private void prevButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prevButton1MouseClicked
         // TODO add your handling code here:
-        new TestGui(nombre).setVisible(true);
+        new TestGui(nombre, usuario).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_prevButton1MouseClicked
+
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+        // TODO add your handling code here:
+        if (usuario.equals("PROFESOR")) {
+            int sw = new TemaDao().borrarTema(nombre);
+            if (sw != 0) {
+                new OptionsGui(usuario).setVisible(true);
+                this.dispose();
+            } 
+        }
+        
+    }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        // TODO add your handling code here:
+        if (usuario.equals("PROFESOR")) {
+            new TemaDao().actualizarContenido(nombre, this.jTextArea1.getText());
+            
+            new TemaDao().actualizarTitulo(nombre, this.titleText.getText());
+            JOptionPane.showMessageDialog(this, "Tema actualizado exitosamente.");
+        }
+        
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -210,7 +271,7 @@ public class TopicGui extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TopicGui(nombre).setVisible(true);
+                new TopicGui(nombre, usuario).setVisible(true);
             }
         });
     }
@@ -218,7 +279,8 @@ public class TopicGui extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel circlesBg;
     private javax.swing.JLabel closeSessionLabel;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
@@ -228,5 +290,6 @@ public class TopicGui extends javax.swing.JFrame {
     private javax.swing.JLabel prevLabel;
     private javax.swing.JLabel prevLabel1;
     private javax.swing.JLabel profileLabel;
+    private javax.swing.JTextField titleText;
     // End of variables declaration//GEN-END:variables
 }

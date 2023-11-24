@@ -14,11 +14,14 @@ import javax.swing.JOptionPane;
  */
 public class NewTopicGui extends javax.swing.JFrame {
 
+    private static String usuario;
+    
     /**
-     * Creates new form NewTopic
+     * Creates new form NewJFrame
      */
-    public NewTopicGui() {
+    public NewTopicGui (String usuario) {
         initComponents();
+        this.usuario = usuario;
     }
 
     /**
@@ -161,7 +164,7 @@ public class NewTopicGui extends javax.swing.JFrame {
 
     private void profileLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileLabelMouseClicked
         // TODO add your handling code here:
-        new ProfileGui().setVisible(true);   // Instancia la clase ProfileGui y llama a setVisible(true) para hacerse visible
+        new ProfileGui(usuario).setVisible(true);   // Instancia la clase ProfileGui y llama a setVisible(true) para hacerse visible
         this.dispose();                     // Cierra la ventana actual en la que se hace clic
     }//GEN-LAST:event_profileLabelMouseClicked
 
@@ -177,14 +180,14 @@ public class NewTopicGui extends javax.swing.JFrame {
             dao.agregar(tema);
             dao.insertarTemaEnDB();
 
-            new OptionsGui().setVisible(true);
+            new OptionsGui(usuario).setVisible(true);
             this.dispose();
         }
     }//GEN-LAST:event_saveButtonMouseClicked
 
     private void prevButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prevButtonMouseClicked
         // TODO add your handling code here:
-        new OptionsGui().setVisible(true);
+        new OptionsGui(usuario).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_prevButtonMouseClicked
 
@@ -219,7 +222,7 @@ public class NewTopicGui extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NewTopicGui().setVisible(true);
+                new NewTopicGui(usuario).setVisible(true);
             }
         });
     }

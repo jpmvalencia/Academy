@@ -4,17 +4,29 @@
  */
 package gui;
 
+import dao.EstudianteDao;
+import dao.TemaDao;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author U53R
  */
 public class ProfileGui extends javax.swing.JFrame {
     
+    private static String usuario;
+    
     /**
      * Creates new form NewJFrame
      */
-    public ProfileGui() {
+    public ProfileGui(String usuario) {
         initComponents();
+        this.usuario = usuario;
+        jTextPane1.setText(usuario + "!");
+        jTextField1.setText(new EstudianteDao().obtenerNombre(usuario));
+        jTextField2.setText(new EstudianteDao().obtenerCorreo(usuario));
+        jTextField3.setText(new EstudianteDao().obtenerApellido(usuario));
+        
     }
 
     /**
@@ -27,6 +39,8 @@ public class ProfileGui extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -35,6 +49,7 @@ public class ProfileGui extends javax.swing.JFrame {
         logoLabel = new javax.swing.JLabel();
         prevButton = new javax.swing.JPanel();
         prevLabel = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jTextPane1 = new javax.swing.JTextPane();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
@@ -50,6 +65,16 @@ public class ProfileGui extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(239, 246, 249));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/trash-10-32.png"))); // NOI18N
+        jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
+            }
+        });
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 430, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 390, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(24, 49, 85));
@@ -69,7 +94,7 @@ public class ProfileGui extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(24, 49, 85));
         jLabel4.setText("Un vistazo a tu perfil.");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, -1, -1));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(24, 49, 85));
@@ -97,19 +122,25 @@ public class ProfileGui extends javax.swing.JFrame {
 
         jPanel1.add(prevButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 120, 47));
 
+        jLabel7.setBackground(new java.awt.Color(171, 225, 248));
+        jLabel7.setFont(new java.awt.Font("Rounded Mplus 1c ExtraBold", 0, 36)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(24, 49, 85));
+        jLabel7.setText("¡Hola");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
+
         jTextPane1.setEditable(false);
         jTextPane1.setBackground(new java.awt.Color(171, 225, 248));
         jTextPane1.setBorder(null);
         jTextPane1.setFont(new java.awt.Font("Rounded Mplus 1c ExtraBold", 0, 36)); // NOI18N
         jTextPane1.setForeground(new java.awt.Color(24, 49, 85));
-        jTextPane1.setText("¡Hola Usuario!");
+        jTextPane1.setText("Usuario!");
         jTextPane1.setFocusable(false);
-        jPanel1.add(jTextPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 160, -1));
+        jPanel1.add(jTextPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 260, -1));
 
-        jTextField2.setBackground(new java.awt.Color(105, 151, 207));
+        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
         jTextField2.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(255, 255, 251));
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField2.setForeground(new java.awt.Color(24, 49, 85));
+        jTextField2.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextField2.setBorder(null);
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,10 +149,10 @@ public class ProfileGui extends javax.swing.JFrame {
         });
         jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 330, 220, 33));
 
-        jTextField3.setBackground(new java.awt.Color(105, 151, 207));
+        jTextField3.setBackground(new java.awt.Color(255, 255, 255));
         jTextField3.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(255, 255, 251));
-        jTextField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField3.setForeground(new java.awt.Color(24, 49, 85));
+        jTextField3.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextField3.setBorder(null);
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,10 +161,10 @@ public class ProfileGui extends javax.swing.JFrame {
         });
         jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 270, 220, 33));
 
-        jTextField1.setBackground(new java.awt.Color(105, 151, 207));
+        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
         jTextField1.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 251));
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField1.setForeground(new java.awt.Color(24, 49, 85));
+        jTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextField1.setBorder(null);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,7 +189,7 @@ public class ProfileGui extends javax.swing.JFrame {
         jLabel5.setText("Actualizar");
         nextButton.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 10, 120, 30));
 
-        jPanel1.add(nextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 420, 130, 47));
+        jPanel1.add(nextButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 420, 130, 47));
 
         circlesBg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgProfile.png"))); // NOI18N
         jPanel1.add(circlesBg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 540));
@@ -179,7 +210,7 @@ public class ProfileGui extends javax.swing.JFrame {
 
     private void prevButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prevButtonMouseClicked
         // TODO add your handling code here:
-        new ContentGui().setVisible(true);
+        new ContentGui(usuario).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_prevButtonMouseClicked
 
@@ -197,7 +228,20 @@ public class ProfileGui extends javax.swing.JFrame {
 
     private void nextButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nextButtonMouseClicked
         // TODO add your handling code here:
+        new EstudianteDao().actualizarNombre(usuario, jTextField1.getText());
+        new EstudianteDao().actualizarApellido(usuario, jTextField3.getText());
+        new EstudianteDao().actualizarCorreo(usuario, jTextField2.getText());
+        JOptionPane.showMessageDialog(this, "Usuario actualizado exitosamente.");
     }//GEN-LAST:event_nextButtonMouseClicked
+
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+        // TODO add your handling code here:
+        int sw = new EstudianteDao().borrarUsuario(usuario);
+        if (sw != 0) {
+            new LoginGui().setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_jLabel9MouseClicked
 
     /**
      * @param args the command line arguments
@@ -232,7 +276,7 @@ public class ProfileGui extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ProfileGui().setVisible(true);
+                new ProfileGui(usuario).setVisible(true);
             }
         });
     }
@@ -245,6 +289,9 @@ public class ProfileGui extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;

@@ -134,4 +134,75 @@ public class TemaDao {
         }
         return contenido;
     }
+    
+    public void actualizarTitulo(String titulo, String newTitulo) {
+        
+        try {
+            Class.forName(driver);
+            Connection conexion = DriverManager.getConnection(conexionUrl, this.usuario, password);
+            Statement statement = conexion.createStatement();
+
+            String sql = "SELECT title FROM `temas` WHERE title = '" + titulo + "'";
+            ResultSet result = statement.executeQuery(sql);
+            
+            if (result.next()) {
+                sql = "UPDATE `temas` SET title = '" + newTitulo + "' WHERE title = '" + titulo + "'";
+                
+                int filasAfectadas = statement.executeUpdate(sql);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(TemaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void actualizarContenido(String titulo, String newContenido) {
+        
+        try {
+            Class.forName(driver);
+            Connection conexion = DriverManager.getConnection(conexionUrl, this.usuario, password);
+            Statement statement = conexion.createStatement();
+
+            String sql = "SELECT content FROM `temas` WHERE title = '" + titulo + "'";
+            ResultSet result = statement.executeQuery(sql);
+            
+            if (result.next()) {
+                sql = "UPDATE `temas` SET content = '" + newContenido + "' WHERE title = '" + titulo + "'";
+                
+                int filasAfectadas = statement.executeUpdate(sql);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(TemaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public int borrarTema(String titulo) {
+        int sw = 0;
+        
+        try {
+            Class.forName(driver);
+            Connection conexion = DriverManager.getConnection(conexionUrl, this.usuario, password);
+            Statement statement = conexion.createStatement();
+
+            // Verificar si el usuario existe antes de intentar borrarlo
+            String sqlSelect = "SELECT * FROM `temas` WHERE title = '" + titulo + "'";
+            ResultSet result = statement.executeQuery(sqlSelect);
+
+            if (result.next()) {
+                // El tema existe, proceder a borrarlo
+                String sqlDelete = "DELETE FROM `temas` WHERE title = '" + titulo + "'";
+                int filasAfectadas = statement.executeUpdate(sqlDelete);
+
+                if (filasAfectadas > 0) {
+                    JOptionPane.showMessageDialog(null, "Tema eliminado exitosamente.");
+                    sw = 1;
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se pudo eliminar el tema.");
+                }
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(TemaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return sw;
+    }
 }

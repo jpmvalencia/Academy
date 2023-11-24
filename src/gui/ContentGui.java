@@ -18,12 +18,30 @@ import javax.swing.JPanel;
  * @author U53R
  */
 public class ContentGui extends javax.swing.JFrame {
+    
+    private static String usuario;
 
     /**
      * Creates new form Content
      */
-    public ContentGui() {
+    public ContentGui(String usuario) {
         initComponents();
+        if (usuario.equals("PROFESOR")) {
+            prevButton.setBackground(new java.awt.Color(105, 151, 207));
+            prevButton.setForeground(new java.awt.Color(255, 255, 251));
+            prevButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+            prevButton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+            prevLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
+            prevLabel.setForeground(new java.awt.Color(255, 255, 251));
+            prevLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+            prevLabel.setText("Atrás");
+            prevButton.add(prevLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, 30));
+
+            jPanel1.add(prevButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 440, 120, 47));
+        }
+        
+        this.usuario = usuario;
         cargarBotonesDesdeDAO();
     }
 
@@ -49,7 +67,7 @@ public class ContentGui extends javax.swing.JFrame {
             panelTema.addMouseListener(new java.awt.event.MouseAdapter() {
                 public void mouseClicked(java.awt.event.MouseEvent evt) {
                     // Implementa el manejo del clic según tus necesidades
-                    new TopicGui(nombre).setVisible(true);
+                    new TopicGui(nombre, usuario).setVisible(true);
                     ContentGui.this.dispose();
                 }
             });
@@ -84,6 +102,8 @@ public class ContentGui extends javax.swing.JFrame {
         closeSessionLabel = new javax.swing.JLabel();
         profileLabel = new javax.swing.JLabel();
         logoLabel = new javax.swing.JLabel();
+        prevButton = new javax.swing.JPanel();
+        prevLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         circlesBg = new javax.swing.JLabel();
 
@@ -125,6 +145,23 @@ public class ContentGui extends javax.swing.JFrame {
         logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo2.png"))); // NOI18N
         jPanel1.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 60, -1, 60));
 
+        prevButton.setBackground(new java.awt.Color(239, 246, 249));
+        prevButton.setForeground(new java.awt.Color(255, 255, 251));
+        prevButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        prevButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                prevButtonMouseClicked(evt);
+            }
+        });
+        prevButton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        prevLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
+        prevLabel.setForeground(new java.awt.Color(255, 255, 251));
+        prevLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        prevButton.add(prevLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, 30));
+
+        jPanel1.add(prevButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 440, 120, 47));
+
         jScrollPane1.setBackground(new java.awt.Color(239, 246, 249));
         jScrollPane1.setForeground(new java.awt.Color(239, 246, 249));
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -158,9 +195,18 @@ public class ContentGui extends javax.swing.JFrame {
 
     private void profileLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileLabelMouseClicked
         // TODO add your handling code here:
-        new ProfileGui().setVisible(true);   // Instancia la clase ProfileGui y llama a setVisible(true) para hacerse visible
+        new ProfileGui(usuario).setVisible(true);   // Instancia la clase ProfileGui y llama a setVisible(true) para hacerse visible
         this.dispose();                     // Cierra la ventana actual en la que se hace clic
     }//GEN-LAST:event_profileLabelMouseClicked
+
+    private void prevButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prevButtonMouseClicked
+        // TODO add your handling code here:
+        if (usuario.equals("PROFESOR")) {
+            new OptionsGui(usuario).setVisible(true);
+            this.dispose();
+        }
+        
+    }//GEN-LAST:event_prevButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -193,7 +239,7 @@ public class ContentGui extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ContentGui().setVisible(true);
+                new ContentGui(usuario).setVisible(true);
             }
         });
     }
@@ -205,6 +251,8 @@ public class ContentGui extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel logoLabel;
+    private javax.swing.JPanel prevButton;
+    private javax.swing.JLabel prevLabel;
     private javax.swing.JLabel profileLabel;
     // End of variables declaration//GEN-END:variables
 }

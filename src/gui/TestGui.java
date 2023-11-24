@@ -10,13 +10,14 @@ package gui;
  */
 public class TestGui extends javax.swing.JFrame {
     
-    private static String nombre;
+    private static String nombre, usuario;
     /**
      * Creates new form Test
      */
-    public TestGui(String nombre) {
+    public TestGui(String nombre, String usuario) {
         initComponents();
         this.nombre = nombre;
+        this.usuario = usuario;
     }
 
     /**
@@ -189,7 +190,7 @@ public class TestGui extends javax.swing.JFrame {
 
     private void tema1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tema1MouseClicked
         // TODO add your handling code here:
-        new TopicGui(nombre).setVisible(true);
+        new TopicGui(nombre, usuario).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_tema1MouseClicked
 
@@ -224,7 +225,7 @@ public class TestGui extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TestGui(nombre).setVisible(true);
+                new TestGui(nombre, usuario).setVisible(true);
             }
         });
     }

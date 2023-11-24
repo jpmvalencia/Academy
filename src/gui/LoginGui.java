@@ -162,27 +162,21 @@ public class LoginGui extends javax.swing.JFrame {
     }//GEN-LAST:event_signUpMouseClicked
 
     private void nextButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nextButtonMouseClicked
-        if("admin".equals(userInput.getText())) {
-            if("admin".equals(String.valueOf(pswdInput.getPassword()))){
-                // Ingresar a ContentGui
-                new OptionsGui().setVisible(true);
-                this.dispose();
-                System.out.print("Usuario: " + userInput.getText() + "\n Contraseña: " + String.valueOf(pswdInput.getPassword()));
-            } else {
-                javax.swing.JOptionPane.showMessageDialog(this, "Datos incorrectos.");
-            }
-        } else {
+        
             EstudianteDao dao = new EstudianteDao();
             boolean ingresoExitoso = dao.iniciarSesion(this.userInput.getText(), String.valueOf(this.pswdInput.getPassword()));
 
-            if (ingresoExitoso) {
+            if (ingresoExitoso && "PROFESOR".equals(this.userInput.getText())) {
                 // Ingresar a ContentGui
-                new ContentGui().setVisible(true);
+                new OptionsGui(userInput.getText()).setVisible(true);
+                this.dispose();
+            } else if (ingresoExitoso){
+                // Ingresar a ContentGui
+                new ContentGui(userInput.getText()).setVisible(true);
                 this.dispose();
             } else {
                 javax.swing.JOptionPane.showMessageDialog(this, "Datos incorrectos.");
             }
-        }
         
     }//GEN-LAST:event_nextButtonMouseClicked
 

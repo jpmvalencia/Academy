@@ -268,6 +268,7 @@ public class SignUpGui extends javax.swing.JFrame {
             emailInput.setText("");
             psswdInput.setText("");
             rePsswdInput.setText("");
+            
         }
         
 

@@ -9,12 +9,15 @@ package gui;
  * @author Usuario
  */
 public class OptionsGui extends javax.swing.JFrame {
+    
+    private static String usuario;
 
     /**
      * Creates new form Options
      */
-    public OptionsGui() {
+    public OptionsGui(String usuario) {
         initComponents();
+        this.usuario = usuario;
     }
 
     /**
@@ -216,13 +219,13 @@ public class OptionsGui extends javax.swing.JFrame {
 
     private void profileLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileLabelMouseClicked
         // TODO add your handling code here:
-        new ProfileGui().setVisible(true);   // Instancia la clase ProfileGui y llama a setVisible(true) para hacerse visible
+        new ProfileGui(usuario).setVisible(true);   // Instancia la clase ProfileGui y llama a setVisible(true) para hacerse visible
         this.dispose();                     // Cierra la ventana actual en la que se hace clic
     }//GEN-LAST:event_profileLabelMouseClicked
 
     private void createTopicMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createTopicMouseClicked
         // TODO add your handling code here:
-        new NewTopicGui().setVisible(true);
+        new NewTopicGui(usuario).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_createTopicMouseClicked
 
@@ -240,7 +243,7 @@ public class OptionsGui extends javax.swing.JFrame {
 
     private void contentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contentMouseClicked
         // TODO add your handling code here:
-        new ContentGui().setVisible(true);
+        new ContentGui(usuario).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_contentMouseClicked
 
@@ -279,7 +282,7 @@ public class OptionsGui extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new OptionsGui().setVisible(true);
+                new OptionsGui(usuario).setVisible(true);
             }
         });
     }

@@ -5,6 +5,8 @@
 package dao;
 
 import clases.Student;
+import gui.LoginGui;
+import gui.ProfileGui;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -44,6 +46,7 @@ public class EstudianteDao {
                 JOptionPane.showMessageDialog(null, "El usuario ya existe");
             } else {
                 listaEstudiantes.add(estudiante);
+                JOptionPane.showMessageDialog(null, "Se creó el usuario correctamente.");
             }
             
             conexion.close();
@@ -92,5 +95,156 @@ public class EstudianteDao {
             Logger.getLogger(EstudianteDao.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
+    }
+    
+    public String obtenerNombre(String usuario) {
+        String contenido = null;
+        
+        try {
+            Class.forName(driver);
+            Connection conexion = DriverManager.getConnection(conexionUrl, this.usuario, password);
+            Statement statement = conexion.createStatement();
+
+            String sql = "SELECT name FROM `estudiantes` WHERE username = '" + usuario + "'";
+            ResultSet result = statement.executeQuery(sql);
+            
+            if (result.next()) {
+                contenido = result.getString("name");
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(TemaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return contenido;
+    }
+    
+    public String obtenerApellido(String usuario) {
+        String contenido = null;
+        
+        try {
+            Class.forName(driver);
+            Connection conexion = DriverManager.getConnection(conexionUrl, this.usuario, password);
+            Statement statement = conexion.createStatement();
+
+            String sql = "SELECT lastName FROM `estudiantes` WHERE username = '" + usuario + "'";
+            ResultSet result = statement.executeQuery(sql);
+            
+            if (result.next()) {
+                contenido = result.getString("lastname");
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(TemaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return contenido;
+    }
+    
+    public String obtenerCorreo(String usuario) {
+        String contenido = null;
+        
+        try {
+            Class.forName(driver);
+            Connection conexion = DriverManager.getConnection(conexionUrl, this.usuario, password);
+            Statement statement = conexion.createStatement();
+
+            String sql = "SELECT email FROM `estudiantes` WHERE username = '" + usuario + "'";
+            ResultSet result = statement.executeQuery(sql);
+            
+            if (result.next()) {
+                contenido = result.getString("email");
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(TemaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return contenido;
+    }
+    
+    public void actualizarNombre(String usuario, String newNombre) {
+        
+        try {
+            Class.forName(driver);
+            Connection conexion = DriverManager.getConnection(conexionUrl, this.usuario, password);
+            Statement statement = conexion.createStatement();
+
+            String sql = "SELECT name FROM `estudiantes` WHERE username = '" + usuario + "'";
+            ResultSet result = statement.executeQuery(sql);
+            
+            if (result.next()) {
+                sql = "UPDATE `estudiantes` SET name = '" + newNombre + "' WHERE username = '" + usuario + "'";
+                
+                int filasAfectadas = statement.executeUpdate(sql);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(TemaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void actualizarApellido(String usuario, String newApellido) {
+        
+        try {
+            Class.forName(driver);
+            Connection conexion = DriverManager.getConnection(conexionUrl, this.usuario, password);
+            Statement statement = conexion.createStatement();
+
+            String sql = "SELECT lastName FROM `estudiantes` WHERE username = '" + usuario + "'";
+            ResultSet result = statement.executeQuery(sql);
+            
+            if (result.next()) {
+                sql = "UPDATE `estudiantes` SET lastName = '" + newApellido + "' WHERE username = '" + usuario + "'";
+                
+                int filasAfectadas = statement.executeUpdate(sql);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(TemaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void actualizarCorreo(String usuario, String newCorreo) {
+        
+        try {
+            Class.forName(driver);
+            Connection conexion = DriverManager.getConnection(conexionUrl, this.usuario, password);
+            Statement statement = conexion.createStatement();
+
+            String sql = "SELECT email FROM `estudiantes` WHERE username = '" + usuario + "'";
+            ResultSet result = statement.executeQuery(sql);
+            
+            if (result.next()) {
+                sql = "UPDATE `estudiantes` SET email = '" + newCorreo + "' WHERE username = '" + usuario + "'";
+                
+                int filasAfectadas = statement.executeUpdate(sql);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(TemaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public int borrarUsuario(String usuario) {
+        int sw = 0;
+        
+        try {
+            Class.forName(driver);
+            Connection conexion = DriverManager.getConnection(conexionUrl, this.usuario, password);
+            Statement statement = conexion.createStatement();
+
+            // Verificar si el usuario existe antes de intentar borrarlo
+            String sqlSelect = "SELECT * FROM `estudiantes` WHERE username = '" + usuario + "'";
+            ResultSet result = statement.executeQuery(sqlSelect);
+
+            if (result.next()) {
+                // El usuario existe, proceder a borrarlo
+                String sqlDelete = "DELETE FROM `estudiantes` WHERE username = '" + usuario + "'";
+                int filasAfectadas = statement.executeUpdate(sqlDelete);
+
+                if (filasAfectadas > 0) {
+                    JOptionPane.showMessageDialog(null, "Usuario eliminado exitosamente.");
+                    sw = 1;
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se pudo eliminar el usuario.");
+                }
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(TemaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return sw;
     }
 }
