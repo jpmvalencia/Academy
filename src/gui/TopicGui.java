@@ -58,8 +58,6 @@ public class TopicGui extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         closeSessionLabel = new javax.swing.JLabel();
         profileLabel = new javax.swing.JLabel();
-        prevButton1 = new javax.swing.JPanel();
-        prevLabel1 = new javax.swing.JLabel();
         prevButton = new javax.swing.JPanel();
         prevLabel = new javax.swing.JLabel();
         circlesBg = new javax.swing.JLabel();
@@ -140,24 +138,6 @@ public class TopicGui extends javax.swing.JFrame {
         });
         jPanel1.add(profileLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 50, -1, -1));
 
-        prevButton1.setBackground(new java.awt.Color(105, 151, 207));
-        prevButton1.setForeground(new java.awt.Color(255, 255, 251));
-        prevButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        prevButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                prevButton1MouseClicked(evt);
-            }
-        });
-        prevButton1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        prevLabel1.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
-        prevLabel1.setForeground(new java.awt.Color(255, 255, 251));
-        prevLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        prevLabel1.setText("Ir al Test");
-        prevButton1.add(prevLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, 30));
-
-        jPanel1.add(prevButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 450, 120, 47));
-
         prevButton.setBackground(new java.awt.Color(105, 151, 207));
         prevButton.setForeground(new java.awt.Color(255, 255, 251));
         prevButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -174,7 +154,7 @@ public class TopicGui extends javax.swing.JFrame {
         prevLabel.setText("Volver");
         prevButton.add(prevLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 100, 30));
 
-        jPanel1.add(prevButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, 120, 47));
+        jPanel1.add(prevButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 450, 120, 47));
 
         circlesBg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgTopic.png"))); // NOI18N
         jPanel1.add(circlesBg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 540));
@@ -210,12 +190,6 @@ public class TopicGui extends javax.swing.JFrame {
         new ContentGui(usuario).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_prevButtonMouseClicked
-
-    private void prevButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_prevButton1MouseClicked
-        // TODO add your handling code here:
-        new TestGui(nombre, usuario).setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_prevButton1MouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         // TODO add your handling code here:
@@ -286,9 +260,7 @@ public class TopicGui extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JPanel prevButton;
-    private javax.swing.JPanel prevButton1;
     private javax.swing.JLabel prevLabel;
-    private javax.swing.JLabel prevLabel1;
     private javax.swing.JLabel profileLabel;
     private javax.swing.JTextField titleText;
     // End of variables declaration//GEN-END:variables

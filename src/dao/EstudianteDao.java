@@ -219,7 +219,7 @@ public class EstudianteDao {
     
     public int borrarUsuario(String usuario) {
         int sw = 0;
-        
+
         try {
             Class.forName(driver);
             Connection conexion = DriverManager.getConnection(conexionUrl, this.usuario, password);
@@ -230,21 +230,30 @@ public class EstudianteDao {
             ResultSet result = statement.executeQuery(sqlSelect);
 
             if (result.next()) {
-                // El usuario existe, proceder a borrarlo
-                String sqlDelete = "DELETE FROM `estudiantes` WHERE username = '" + usuario + "'";
-                int filasAfectadas = statement.executeUpdate(sqlDelete);
+                // El usuario existe, solicitar confirmación antes de borrarlo
+                int confirmacion = JOptionPane.showConfirmDialog(null, "¿Realmente quieres eliminar el usuario?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
 
-                if (filasAfectadas > 0) {
-                    JOptionPane.showMessageDialog(null, "Usuario eliminado exitosamente.");
-                    sw = 1;
+                if (confirmacion == JOptionPane.YES_OPTION) {
+                    // Proceder a borrar el usuario
+                    String sqlDelete = "DELETE FROM `estudiantes` WHERE username = '" + usuario + "'";
+                    int filasAfectadas = statement.executeUpdate(sqlDelete);
+
+                    if (filasAfectadas > 0) {
+                        JOptionPane.showMessageDialog(null, "Usuario eliminado exitosamente.");
+                        sw = 1;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No se pudo eliminar el usuario.");
+                    }
                 } else {
-                    JOptionPane.showMessageDialog(null, "No se pudo eliminar el usuario.");
+                    JOptionPane.showMessageDialog(null, "Operación cancelada por el usuario.");
                 }
+            } else {
+                JOptionPane.showMessageDialog(null, "El usuario no existe.");
             }
         } catch (Exception ex) {
             Logger.getLogger(TemaDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return sw;
     }
 }

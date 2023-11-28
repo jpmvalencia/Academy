@@ -177,32 +177,41 @@ public class TemaDao {
     
     public int borrarTema(String titulo) {
         int sw = 0;
-        
+
         try {
             Class.forName(driver);
             Connection conexion = DriverManager.getConnection(conexionUrl, this.usuario, password);
             Statement statement = conexion.createStatement();
 
-            // Verificar si el usuario existe antes de intentar borrarlo
+            // Verificar si el tema existe antes de intentar borrarlo
             String sqlSelect = "SELECT * FROM `temas` WHERE title = '" + titulo + "'";
             ResultSet result = statement.executeQuery(sqlSelect);
 
             if (result.next()) {
-                // El tema existe, proceder a borrarlo
-                String sqlDelete = "DELETE FROM `temas` WHERE title = '" + titulo + "'";
-                int filasAfectadas = statement.executeUpdate(sqlDelete);
+                // El tema existe, solicitar confirmación antes de borrarlo
+                int confirmacion = JOptionPane.showConfirmDialog(null, "¿Realmente quieres eliminar el tema?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
 
-                if (filasAfectadas > 0) {
-                    JOptionPane.showMessageDialog(null, "Tema eliminado exitosamente.");
-                    sw = 1;
+                if (confirmacion == JOptionPane.YES_OPTION) {
+                    // Proceder a borrar el tema
+                    String sqlDelete = "DELETE FROM `temas` WHERE title = '" + titulo + "'";
+                    int filasAfectadas = statement.executeUpdate(sqlDelete);
+
+                    if (filasAfectadas > 0) {
+                        JOptionPane.showMessageDialog(null, "Tema eliminado exitosamente.");
+                        sw = 1;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No se pudo eliminar el tema.");
+                    }
                 } else {
-                    JOptionPane.showMessageDialog(null, "No se pudo eliminar el tema.");
+                    JOptionPane.showMessageDialog(null, "Operación cancelada por el usuario.");
                 }
+            } else {
+                JOptionPane.showMessageDialog(null, "El tema no existe.");
             }
         } catch (Exception ex) {
             Logger.getLogger(TemaDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return sw;
     }
 }

@@ -26,6 +26,9 @@ public class ProfileGui extends javax.swing.JFrame {
         jTextField1.setText(new EstudianteDao().obtenerNombre(usuario));
         jTextField2.setText(new EstudianteDao().obtenerCorreo(usuario));
         jTextField3.setText(new EstudianteDao().obtenerApellido(usuario));
+        if (!"PROFESOR".equals(usuario)) {
+            jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/trash-10-32.png"))); // NOI18N
+        }
         
     }
 
@@ -66,7 +69,6 @@ public class ProfileGui extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(239, 246, 249));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/trash-10-32.png"))); // NOI18N
         jLabel9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -236,10 +238,12 @@ public class ProfileGui extends javax.swing.JFrame {
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         // TODO add your handling code here:
-        int sw = new EstudianteDao().borrarUsuario(usuario);
-        if (sw != 0) {
-            new LoginGui().setVisible(true);
-            this.dispose();
+        if (usuario != "PROFESOR") {
+            int sw = new EstudianteDao().borrarUsuario(usuario);
+            if (sw != 0) {
+                new LoginGui().setVisible(true);
+                this.dispose();
+            }
         }
     }//GEN-LAST:event_jLabel9MouseClicked
 

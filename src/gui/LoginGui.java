@@ -51,7 +51,7 @@ public class LoginGui extends javax.swing.JFrame {
 
         pswdRecov.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
         pswdRecov.setForeground(new java.awt.Color(105, 151, 207));
-        pswdRecov.setText("Recuperar contraseña");
+        pswdRecov.setText("                                    ");
         pswdRecov.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         pswdRecov.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

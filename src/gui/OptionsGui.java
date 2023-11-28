@@ -31,19 +31,11 @@ public class OptionsGui extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         logoLabel = new javax.swing.JLabel();
-        tema4 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
         content = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         closeSessionLabel = new javax.swing.JLabel();
-        tema2 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        tema3 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         profileLabel = new javax.swing.JLabel();
-        tema6 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
         createTopic = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         circlesBg = new javax.swing.JLabel();
@@ -58,24 +50,6 @@ public class OptionsGui extends javax.swing.JFrame {
 
         logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo2.png"))); // NOI18N
         jPanel1.add(logoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 60, -1, 60));
-
-        tema4.setBackground(new java.awt.Color(105, 151, 207));
-        tema4.setForeground(new java.awt.Color(255, 255, 251));
-        tema4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        tema4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tema4MouseClicked(evt);
-            }
-        });
-        tema4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel7.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 251));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Próximamente");
-        tema4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 220, 30));
-
-        jPanel1.add(tema4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 240, 47));
 
         content.setBackground(new java.awt.Color(105, 151, 207));
         content.setForeground(new java.awt.Color(255, 255, 251));
@@ -93,7 +67,7 @@ public class OptionsGui extends javax.swing.JFrame {
         jLabel8.setText("Ver Temas");
         content.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 220, 30));
 
-        jPanel1.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 240, 47));
+        jPanel1.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 240, 47));
 
         closeSessionLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
         closeSessionLabel.setForeground(new java.awt.Color(105, 151, 207));
@@ -105,42 +79,6 @@ public class OptionsGui extends javax.swing.JFrame {
             }
         });
         jPanel1.add(closeSessionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, -1, -1));
-
-        tema2.setBackground(new java.awt.Color(105, 151, 207));
-        tema2.setForeground(new java.awt.Color(255, 255, 251));
-        tema2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        tema2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tema2MouseClicked(evt);
-            }
-        });
-        tema2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel4.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 251));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Próximamente");
-        tema2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 220, 30));
-
-        jPanel1.add(tema2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 350, 240, 47));
-
-        tema3.setBackground(new java.awt.Color(105, 151, 207));
-        tema3.setForeground(new java.awt.Color(255, 255, 251));
-        tema3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        tema3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tema3MouseClicked(evt);
-            }
-        });
-        tema3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel6.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 251));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Próximamente");
-        tema3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 220, 30));
-
-        jPanel1.add(tema3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 240, 47));
 
         jLabel3.setFont(new java.awt.Font("Rounded Mplus 1c ExtraBold", 1, 48)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(119, 149, 203));
@@ -158,24 +96,6 @@ public class OptionsGui extends javax.swing.JFrame {
         });
         jPanel1.add(profileLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 80, -1, -1));
 
-        tema6.setBackground(new java.awt.Color(105, 151, 207));
-        tema6.setForeground(new java.awt.Color(255, 255, 251));
-        tema6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        tema6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tema6MouseClicked(evt);
-            }
-        });
-        tema6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel9.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 251));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("Próximamente");
-        tema6.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 220, 30));
-
-        jPanel1.add(tema6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 240, 47));
-
         createTopic.setBackground(new java.awt.Color(105, 151, 207));
         createTopic.setForeground(new java.awt.Color(255, 255, 251));
         createTopic.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -192,7 +112,7 @@ public class OptionsGui extends javax.swing.JFrame {
         jLabel5.setText("Crear Tema");
         createTopic.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 220, 30));
 
-        jPanel1.add(createTopic, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 240, 47));
+        jPanel1.add(createTopic, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 240, 47));
 
         circlesBg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bgContent.png"))); // NOI18N
         jPanel1.add(circlesBg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 540));
@@ -229,27 +149,11 @@ public class OptionsGui extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_createTopicMouseClicked
 
-    private void tema2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tema2MouseClicked
-        // Go to next
-    }//GEN-LAST:event_tema2MouseClicked
-
-    private void tema3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tema3MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tema3MouseClicked
-
-    private void tema4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tema4MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tema4MouseClicked
-
     private void contentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contentMouseClicked
         // TODO add your handling code here:
         new ContentGui(usuario).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_contentMouseClicked
-
-    private void tema6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tema6MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tema6MouseClicked
 
     /**
      * @param args the command line arguments
@@ -293,18 +197,10 @@ public class OptionsGui extends javax.swing.JFrame {
     private javax.swing.JPanel content;
     private javax.swing.JPanel createTopic;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel logoLabel;
     private javax.swing.JLabel profileLabel;
-    private javax.swing.JPanel tema2;
-    private javax.swing.JPanel tema3;
-    private javax.swing.JPanel tema4;
-    private javax.swing.JPanel tema6;
     // End of variables declaration//GEN-END:variables
 }
