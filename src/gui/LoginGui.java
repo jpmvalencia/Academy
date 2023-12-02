@@ -125,8 +125,9 @@ public class LoginGui extends javax.swing.JFrame {
 
         loginLabel.setFont(new java.awt.Font("Rounded Mplus 1c ExtraBold", 1, 48)); // NOI18N
         loginLabel.setForeground(new java.awt.Color(119, 149, 203));
+        loginLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         loginLabel.setText("Iniciar Sesión");
-        jPanel1.add(loginLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, -1, -1));
+        jPanel1.add(loginLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 70, 340, -1));
 
         logoImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo1.png"))); // NOI18N
         jPanel1.add(logoImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 340, 70));

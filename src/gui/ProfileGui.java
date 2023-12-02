@@ -128,7 +128,7 @@ public class ProfileGui extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Rounded Mplus 1c ExtraBold", 0, 36)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(24, 49, 85));
         jLabel7.setText("¡Hola");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 250, -1));
 
         jTextPane1.setEditable(false);
         jTextPane1.setBackground(new java.awt.Color(171, 225, 248));

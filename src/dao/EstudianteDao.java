@@ -32,8 +32,7 @@ public class EstudianteDao {
     String driver = "com.mysql.cj.jdbc.Driver";
     String conexionUrl = "jdbc:mysql://" + host + ":" + puerto + "/" + baseDeDatos + "?useSSL=false";
     
-    public void agregar(Student estudiante) {
-        
+    public int agregar(Student estudiante) {
         try {
             Class.forName(driver);
             Connection conexion = DriverManager.getConnection(conexionUrl, usuario, password);
@@ -44,6 +43,8 @@ public class EstudianteDao {
             
             if (result.next()) {
                 JOptionPane.showMessageDialog(null, "El usuario ya existe");
+                return 1;
+
             } else {
                 listaEstudiantes.add(estudiante);
                 JOptionPane.showMessageDialog(null, "Se creó el usuario correctamente.");
@@ -53,6 +54,7 @@ public class EstudianteDao {
         } catch (Exception ex) {
             Logger.getLogger(EstudianteDao.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return 0;
     }
     
     public void insertarUsuarioEnDB() {

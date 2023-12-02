@@ -86,8 +86,9 @@ public class SignUpGui extends javax.swing.JFrame {
 
         userLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
         userLabel.setForeground(new java.awt.Color(24, 49, 85));
+        userLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         userLabel.setText("Usuario");
-        jPanel1.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, -1, -1));
+        jPanel1.add(userLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 150, 220, -1));
 
         emailInput.setBackground(new java.awt.Color(105, 151, 207));
         emailInput.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
@@ -98,13 +99,15 @@ public class SignUpGui extends javax.swing.JFrame {
 
         emailLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
         emailLabel.setForeground(new java.awt.Color(24, 49, 85));
+        emailLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         emailLabel.setText("Correo Electrónico");
-        jPanel1.add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, -1, -1));
+        jPanel1.add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(393, 230, 210, -1));
 
         psswdLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
         psswdLabel.setForeground(new java.awt.Color(24, 49, 85));
+        psswdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         psswdLabel.setText("Contraseña");
-        jPanel1.add(psswdLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, -1, -1));
+        jPanel1.add(psswdLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 220, -1));
 
         psswdInput.setBackground(new java.awt.Color(105, 151, 207));
         psswdInput.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
@@ -150,8 +153,9 @@ public class SignUpGui extends javax.swing.JFrame {
 
         rePsswdLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
         rePsswdLabel.setForeground(new java.awt.Color(24, 49, 85));
+        rePsswdLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         rePsswdLabel.setText("Confirmar Contraseña");
-        jPanel1.add(rePsswdLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, -1, -1));
+        jPanel1.add(rePsswdLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 220, -1));
 
         logIn.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
         logIn.setForeground(new java.awt.Color(105, 151, 207));
@@ -186,13 +190,15 @@ public class SignUpGui extends javax.swing.JFrame {
 
         nameLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
         nameLabel.setForeground(new java.awt.Color(24, 49, 85));
+        nameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nameLabel.setText("Nombre");
-        jPanel1.add(nameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, -1, -1));
+        jPanel1.add(nameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 150, 210, -1));
 
         lastNameLabel.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 18)); // NOI18N
         lastNameLabel.setForeground(new java.awt.Color(24, 49, 85));
+        lastNameLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lastNameLabel.setText("Apellido");
-        jPanel1.add(lastNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, -1, -1));
+        jPanel1.add(lastNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 220, -1));
 
         lastNameInput.setBackground(new java.awt.Color(105, 151, 207));
         lastNameInput.setFont(new java.awt.Font("Rounded Mplus 1c Medium", 0, 14)); // NOI18N
@@ -258,16 +264,19 @@ public class SignUpGui extends javax.swing.JFrame {
             
             Student estudiante = new Student(this.userInput.getText(), this.nameInput.getText(), this.lastNameInput.getText(), String.valueOf(this.psswdInput.getPassword()), this.emailInput.getText());
             EstudianteDao dao = new EstudianteDao();
-            dao.agregar(estudiante);
-            dao.insertarUsuarioEnDB();
+            if(dao.agregar(estudiante) != 1) {
+                // Limpiar campos
+                userInput.setText("");
+                nameInput.setText("");
+                lastNameInput.setText("");
+                emailInput.setText("");
+                psswdInput.setText("");
+                rePsswdInput.setText("");
+                
+                
+                dao.insertarUsuarioEnDB();
+            }
             
-            // Limpiar campos
-            userInput.setText("");
-            nameInput.setText("");
-            lastNameInput.setText("");
-            emailInput.setText("");
-            psswdInput.setText("");
-            rePsswdInput.setText("");
             
         }
         
